@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Portfolio from './portfolio'
+import Portfolio from './Portfolio'
 import './App.css'
 
 function App() {
