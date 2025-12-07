@@ -4,20 +4,30 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact from '@vitejs/plugin-react'
 import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
-// import { nitro } from 'nitro-nightly/vite'
 
 const config = defineConfig({
   plugins: [
     devtools(),
-    // nitro(), // disabled due to bug with notFound pages
     // this is the plugin that enables path aliases
     viteTsConfigPaths({
       projects: ['./tsconfig.json'],
     }),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        autoSubfolderIndex: true,
+        autoStaticPathsDiscovery: true,
+        // you can leave the advanced options at defaults for now
+      },
+    }),
     viteReact(),
   ],
+  ssr: {
+    external: ['shiki'],
+    // if you want to be extra safe you can also do:
+    // external: ['shiki', 'shiki/dist/onig.wasm'],
+  },
 })
 
 export default config

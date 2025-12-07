@@ -6,14 +6,14 @@ import { ProfileCover } from '@/features/portfolio/components/profile-cover';
 import { ProfileHeader } from '@/features/portfolio/components/profile-header';
 import { Overview } from '@/features/portfolio/components/overview';
 import { About } from '@/features/portfolio/components/about';
-import { TestimonialsMarquee } from '@/features/portfolio/components/testimonials-marquee';
+// import { TestimonialsMarquee } from '@/features/portfolio/components/testimonials-marquee';
 import { Awards } from '@/features/portfolio/components/awards';
-import { Blog } from '@/features/portfolio/components/blog';
+// import { Blog } from '@/features/portfolio/components/blog';
 import { Bookmarks } from '@/features/portfolio/components/bookmarks';
-import { Brand } from '@/features/portfolio/components/brand';
+// import { Brand } from '@/features/portfolio/components/brand';
 import { Certifications } from '@/features/portfolio/components/certifications';
 import { Experiences } from '@/features/portfolio/components/experiences';
-import { GitHubContributions } from '@/features/portfolio/components/github-contributions';
+// import { GitHubContributions } from '@/features/portfolio/components/github-contributions';
 import { Projects } from '@/features/portfolio/components/projects';
 import { TeckStack } from '@/features/portfolio/components/teck-stack';
 
