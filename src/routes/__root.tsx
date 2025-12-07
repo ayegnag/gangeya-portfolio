@@ -1,10 +1,7 @@
 import { HeadContent, Scripts, createRootRouteWithContext, useRouterState } from '@tanstack/react-router'
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
-import { TanStackDevtools } from '@tanstack/react-devtools'
+// import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
+// import { TanStackDevtools } from '@tanstack/react-devtools'
 
-import Header from '../components/Header'
-
-import StoreDevtools from '../lib/demo-store-devtools'
 
 // import appCss from '@/styles/styles.css?url'
 import appCss from "@/styles/globals.css?url";
@@ -15,8 +12,20 @@ import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { AppProviders } from '@/components/providers'
 import { SiteHeader } from '@/components/site-header'
 
+import { USER } from "@/features/portfolio/data/user";
+import { WebSite, WithContext } from 'schema-dts';
+
 function getTitle(match: any) {
   return match.globalNotFound ? '404 – Page not found | Gangeya' : 'Gangeya'
+}
+function getWebSiteJsonLd(): WithContext<WebSite> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_INFO.name,
+    url: SITE_INFO.url,
+    alternateName: [USER.username],
+  };
 }
 
 // Thanks @shadcn-ui, @tailwindcss
@@ -84,6 +93,12 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{ __html: darkModeScript }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getWebSiteJsonLd()).replace(/</g, "\\u003c"),
+          }}
         />
       </head>
       <body>

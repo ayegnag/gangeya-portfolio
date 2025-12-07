@@ -6,8 +6,8 @@ import {
   DraftingCompassIcon,
   GraduationCapIcon,
 } from "lucide-react";
-import Image from "next/image";
-import React from "react";
+// import Image from "next/image";
+// import React from "react";
 import ReactMarkdown from "react-markdown";
 
 import {
@@ -92,14 +92,14 @@ export function ExperienceItem({
           aria-hidden
         >
           {experience.companyLogo ? (
-            <Image
+            <img
               src={experience.companyLogo}
               alt={experience.companyName}
               width={24}
               height={24}
-              quality={100}
+              // quality={100}
               className="rounded-full"
-              unoptimized
+              // unoptimized
             />
           ) : (
             <span className="flex size-2 rounded-full bg-zinc-300 dark:bg-zinc-600" />

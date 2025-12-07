@@ -1,4 +1,7 @@
 {
+  "devCommand": "pnpm dev",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist",
   "rewrites": [
     {
       "source": "/((?!api/.*).*)",

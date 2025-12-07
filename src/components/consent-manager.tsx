@@ -2,7 +2,7 @@ import {
   ConsentManagerDialog,
   ConsentManagerProvider,
   CookieBanner,
-} from "@c15t/nextjs";
+} from "@c15t/react";
 
 import { cn } from "@/lib/utils";
 

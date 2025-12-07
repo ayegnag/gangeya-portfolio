@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 
 import { SOCIAL_LINKS } from "../../data/social-links";
 import { Panel } from "../panel";

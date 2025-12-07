@@ -1,4 +1,4 @@
-import { DownloadIcon, TriangleDashedIcon, TypeIcon } from "lucide-react";
+import { TriangleDashedIcon, TypeIcon } from "lucide-react";
 import { Link } from '@tanstack/react-router'
 import { useTheme } from "next-themes";
 import { toast } from "sonner";

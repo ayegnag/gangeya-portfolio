@@ -11,9 +11,7 @@ import { Panel, PanelHeader, PanelTitle } from "./panel";
 import { Suspense, lazy } from "react";
 
 const BrandContextMenu = lazy(() =>
-  import("@/components/brand-context-menu").then((mod) => ({
-    default: mod.BrandContextMenu,
-  }))
+  import("@/components/brand-context-menu")
 );
 
 
