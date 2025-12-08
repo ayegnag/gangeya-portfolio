@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import { devtools } from '@tanstack/devtools-vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
+import { visualizer } from 'rollup-plugin-visualizer'
 import viteReact from '@vitejs/plugin-react'
 import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
@@ -22,6 +23,7 @@ const config = defineConfig({
       },
     }),
     viteReact(),
+    visualizer({ open: true, gzipSize: true }),
   ],
   ssr: {
     external: ['shiki'],

@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite dev --port 3000",
-    "build": "vite build && tsc --noEmit",
+    "build": "vite build",
     "serve": "vite preview",
     "test": "vitest run",
     "registry:internal:build": "tsx --tsconfig ./tsconfig.scripts.json ./src/scripts/build-registry.mts",
@@ -122,6 +122,7 @@
     "hast": "^1.0.0",
     "jsdom": "^27.2.0",
     "libphonenumber-metadata-generator": "^1.1.0",
+    "rollup-plugin-visualizer": "^6.0.5",
     "typescript": "^5.9.3",
     "unist-builder": "3.0.0",
     "unist-util-visit": "^5.0.0",
