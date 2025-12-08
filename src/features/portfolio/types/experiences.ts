@@ -1,6 +1,6 @@
 export type ExperiencePositionIcon =
   /** Icon key used to render the position category in the UI. */
-  "code" | "design" | "education" | "business" | "idea";
+  "code" | "hardware" | "design" | "education" | "business" | "idea";
 
 export type ExperiencePosition = {
   id: string;
