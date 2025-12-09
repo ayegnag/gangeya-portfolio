@@ -9,20 +9,44 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
     <div className="screen-line-after space-y-4 py-4">
       <div className="flex items-center gap-3">
         <div className="flex size-6 shrink-0 items-center justify-center select-none">
-          {experience.companyLogo ? (
-            <img
-              src={experience.companyLogo}
-              alt={experience.companyName}
-              width={24}
-              height={24}
-              // quality={100}
-              className="rounded-full"
-              // unoptimized
-              aria-hidden
-            />
-          ) : (
-            <span className="flex size-2 rounded-full bg-zinc-300 dark:bg-zinc-600" />
-          )}
+          {experience.companyLogo ?
+            experience.logoTheme ? (
+              <>
+                <img
+                  src={experience.companyLogo + '-light.svg'}
+                  alt={`${experience.companyName} light icon`}
+                  width={24}
+                  height={24}
+                  // quality={100}
+                  className="rounded-full hidden [html.light_&]:block"
+                  // unoptimized
+                  aria-hidden
+                />
+                <img
+                  src={experience.companyLogo + '-dark.svg'}
+                  alt={`${experience.companyName} dark icon`}
+                  width={24}
+                  height={24}
+                  // quality={100}
+                  className="rounded-full hidden [html.dark_&]:block"
+                  // unoptimized
+                  aria-hidden
+                />
+              </>
+            ) : (
+              <img
+                src={experience.companyLogo + '.svg'}
+                alt={experience.companyName}
+                width={24}
+                height={24}
+                // quality={100}
+                className="rounded-full"
+                // unoptimized
+                aria-hidden
+              />
+            ) : (
+              <span className="flex size-2 rounded-full bg-zinc-300 dark:bg-zinc-600" />
+            )}
         </div>
 
         <h3 className="text-lg leading-snug font-medium">

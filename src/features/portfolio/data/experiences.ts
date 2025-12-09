@@ -4,7 +4,8 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "consulting",
     companyName: "Deloitte Digital",
-    companyLogo: "/images/companies/deloitte.svg",
+    companyLogo: "/images/companies/deloitte",
+    logoTheme: true,
     positions: [
       {
         id: "techlead-001",
@@ -95,7 +96,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "3dprint",
     companyName: "realprint",
-    companyLogo: "/images/companies/realprint.svg",
+    companyLogo: "/images/companies/realprint",
     positions: [
       {
         id: "founder-001",
@@ -123,7 +124,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "webdev",
     companyName: "Securifi Embedded Systems (India) PL",
-    companyLogo: "/images/companies/securifi.svg",
+    companyLogo: "/images/companies/securifi",
     positions: [
       {
         id: "webapp-001",
@@ -172,7 +173,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "embedded",
     companyName: "Securifi Embedded Systems (India) PL",
-    companyLogo: "/images/companies/securifi.svg",
+    companyLogo: "/images/companies/securifi",
     positions: [
       {
         id: "embedded-001",

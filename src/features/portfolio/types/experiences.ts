@@ -30,6 +30,7 @@ export type Experience = {
   companyName: string;
   /** URL to the company logo (absolute URL or path under /public). */
   companyLogo?: string;
+  logoTheme?: boolean;
   /** Roles held at this company; keep newest first for display. */
   positions: ExperiencePosition[];
   /** Marks the company as the current employer for highlighting. */
