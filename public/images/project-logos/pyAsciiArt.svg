@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <rect width="100%" height="100%" rx="28" fill="#0b1220"/>
+  <g transform="translate(32,28)">
+    <rect x="12" y="12" width="256" height="196" rx="12" fill="#001219" stroke="#99f6e4" stroke-width="3"/>
+    <text x="24" y="84" font-family="monospace" font-size="28" fill="#99f6e4">@#%&amp;=</text>
+    <text x="24" y="120" font-family="monospace" font-size="18" fill="#9be7ff">pyAsciiArt</text>
+  </g>
+</svg>

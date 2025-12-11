@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <rect width="100%" height="100%" rx="28" fill="#0f172a"/>
+  <g transform="translate(40,40)">
+    <circle cx="60" cy="60" r="42" fill="#f8fafc"/>
+    <circle cx="140" cy="60" r="42" fill="#111827"/>
+    <rect x="40" y="140" width="120" height="32" rx="8" fill="#f8fafc" opacity="0.12"/>
+    <text x="20" y="230" font-family="Inter, sans-serif" font-size="26" fill="#e6eef8">Go • Play</text>
+  </g>
+</svg>

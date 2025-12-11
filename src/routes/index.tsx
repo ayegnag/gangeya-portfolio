@@ -1,7 +1,7 @@
-import { USER } from '@/features/portfolio/data/user';
+// import { USER } from '@/features/portfolio/data/user';
 import { cn } from '@/lib/utils';
 import { createFileRoute } from '@tanstack/react-router'
-import type { ProfilePage as PageSchema, WithContext } from "schema-dts"
+// import type { ProfilePage as PageSchema, WithContext } from "schema-dts"
 import { ProfileCover } from '@/features/portfolio/components/profile-cover';
 import { ProfileHeader } from '@/features/portfolio/components/profile-header';
 import { Overview } from '@/features/portfolio/components/overview';
@@ -14,7 +14,7 @@ import { About } from '@/features/portfolio/components/about';
 // import { Certifications } from '@/features/portfolio/components/certifications';
 import { Experiences } from '@/features/portfolio/components/experiences';
 // import { GitHubContributions } from '@/features/portfolio/components/github-contributions';
-// import { Projects } from '@/features/portfolio/components/projects';
+import { Projects } from '@/features/portfolio/components/projects';
 import { TeckStack } from '@/features/portfolio/components/teck-stack';
 
 export const Route = createFileRoute('/')({
@@ -61,10 +61,10 @@ function App() {
         <Experiences />
         <Separator />
 
-        {/* <Projects />
+        <Projects />
         <Separator />
 
-        <Awards />
+        {/* <Awards />
         <Separator />
 
         <Certifications />

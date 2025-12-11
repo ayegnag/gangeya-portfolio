@@ -1,0 +1,24 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#06b6a4"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" rx="64" fill="#0f172a"/>
+  <g transform="translate(64,64)">
+    <!-- shield / privacy background -->
+    <path d="M192 16c-44 0-80 36-80 80v36c0 12 10 22 22 22h116c12 0 22-10 22-22v-36c0-44-36-80-80-80z" fill="url(#g)"/>
+    <!-- rupee/expense symbol stylized -->
+    <g transform="translate(72,120) scale(1.1)">
+      <path d="M64 0c-35 0-64 29-64 64 0 35 29 64 64 64 20 0 38-9 50-23 8-9 6-23-4-31-9-8-23-6-31 4-6 6-16 12-25 12-20 0-36-16-36-36 0-20 16-36 36-36 9 0 17 3 24 8 9 7 21 5 28-4 7-9 5-21-4-28C106 5 86 0 64 0z" fill="#fff"/>
+    </g>
+    <!-- lock icon at bottom for privacy -->
+    <g transform="translate(112,240)">
+      <rect x="40" y="20" width="112" height="80" rx="12" fill="#021124" stroke="#9eead6" stroke-width="6"/>
+      <path d="M96 20v-18c0-18 14-32 32-32s32 14 32 32v18" fill="none" stroke="#9eead6" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="96" cy="60" r="8" fill="#9eead6"/>
+    </g>
+  </g>
+</svg>

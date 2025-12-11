@@ -200,6 +200,18 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Database"],
   },
   {
+    key: "android",
+    title: "Android",
+    href: "https://developer.android.com/",
+    categories: ["Platform", "Tools", "Design"],
+  },
+  {
+    key: "kotlin",
+    title: "Kotlin",
+    href: "https://kotlinlang.org/",
+    categories: ["Language"],
+  },
+  {
     key: "figma",
     title: "Figma",
     href: "https://www.figma.com/",
