@@ -66,7 +66,13 @@ export const TECH_STACK: TechStack[] = [
     key: "angular",
     title: "Angular",
     href: "https://angular.dev",
-    categories: ["Library", "UI Library"],
+    categories: ["Framework", "UI Library"],
+  },
+  {
+    key: "angular-material",
+    title: "Angular Material",
+    href: "https://material.angular.dev/",
+    categories: ["Library", "UI Library", "Component Library"],
   },
   {
     key: "jquery",

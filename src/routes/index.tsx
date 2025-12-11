@@ -28,12 +28,12 @@ function App() {
 
   return (
     <>
-      <script
+      {/* <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(getPageJsonLd()).replace(/</g, "\\u003c"),
         }}
-      ></script>
+      ></script> */}
       <div className="mx-auto md:max-w-3xl *:[[id]]:scroll-mt-22">
         <ProfileCover />
         {/* <Separator /> */}
@@ -82,20 +82,20 @@ function App() {
 }
 
 
-function getPageJsonLd(): WithContext<PageSchema> {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    dateCreated: new Date(USER.dateCreated).toISOString(),
-    dateModified: new Date().toISOString(),
-    mainEntity: {
-      "@type": "Person",
-      name: USER.displayName,
-      identifier: USER.username,
-      image: USER.avatar,
-    },
-  };
-}
+// function getPageJsonLd(): WithContext<PageSchema> {
+//   return {
+//     "@context": "https://schema.org",
+//     "@type": "ProfilePage",
+//     dateCreated: new Date(USER.dateCreated).toISOString(),
+//     dateModified: new Date().toISOString(),
+//     mainEntity: {
+//       "@type": "Person",
+//       name: USER.displayName,
+//       identifier: USER.username,
+//       image: USER.avatar,
+//     },
+//   };
+// }
 
 function Separator({ className }: { className?: string }) {
   return (

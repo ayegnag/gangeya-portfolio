@@ -40,7 +40,8 @@ export const USER: User = {
   - Focused on **architecture, performance, and developer experience**, ensuring systems remain efficient, observable, and adaptable at scale.
    `,
 
-  avatar: "/images/profilePic_painted.jpg",
+  // avatar: "/images/profilePic_painted.jpg",
+  avatar: "/images/profilePic_photo.jpg",
   ogImage:
     "https://assets.chanhdai.com/images/screenshot-og-image-light.png?t=1764345394",
   namePronunciationUrl: "/audio/gangeya_name.mp3",
