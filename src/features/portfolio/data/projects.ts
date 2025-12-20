@@ -57,7 +57,6 @@ export const PROJECTS: Project[] = [
         title: "Vyay — Private Expense Manager",
         period: {
             start: "08.2024",
-            end: "Present"
         },
         link: "https://github.com/ayegnag/vyay",
         skills: [
@@ -133,7 +132,6 @@ export const PROJECTS: Project[] = [
         title: "MacOS - Screen Time Widget",
         period: {
             start: "10.2025",
-            end: "Present"
         },
         link: "https://github.com/ayegnag/screen-time-widget",
         skills: [

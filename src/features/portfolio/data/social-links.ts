@@ -13,10 +13,10 @@ export const SOCIAL_LINKS: SocialLink[] = [
     description: "ayegnag",
     href: "https://github.com/ayegnag",
   },
-  {
-    icon: "/images/link-icons/x.webp",
-    title: "X (formerly Twitter)",
-    description: "@Gangeya_dex",
-    href: "https://x.com/Gangeya_dev",
-  },
+  // {
+  //   icon: "/images/link-icons/x.webp",
+  //   title: "X (formerly Twitter)",
+  //   description: "@Gangeya_dex",
+  //   href: "https://x.com/Gangeya_dev",
+  // },
 ];

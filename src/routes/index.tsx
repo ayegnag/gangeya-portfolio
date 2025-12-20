@@ -16,6 +16,7 @@ import { Experiences } from '@/features/portfolio/components/experiences';
 // import { GitHubContributions } from '@/features/portfolio/components/github-contributions';
 import { Projects } from '@/features/portfolio/components/projects';
 import { TeckStack } from '@/features/portfolio/components/teck-stack';
+import { SocialLinks } from '@/features/portfolio/components/social-links';
 
 export const Route = createFileRoute('/')({
   beforeLoad: () => ({
@@ -43,6 +44,10 @@ function App() {
 
         <Overview />
         <Separator />
+
+        <SocialLinks />
+        <Separator />
+        
         <About />
         <Separator />
 

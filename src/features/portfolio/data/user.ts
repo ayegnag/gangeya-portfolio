@@ -12,6 +12,7 @@ export const USER: User = {
     "Creating with code. Small details matter.",
     "Full-Stack Developer",
     "Design Thinker",
+    "Maker at Heart",
   ],
   address: "Jaipur, Rajasthan, India",
   phoneNumber: "KzkxIDkwMDA3IDg1MTUz", // E.164 format, base64 encoded
@@ -41,7 +42,7 @@ export const USER: User = {
    `,
 
   // avatar: "/images/profilePic_painted.jpg",
-  avatar: "/images/profilePic_photo.jpg",
+  avatar: "/images/profilePic_photo.png",
   ogImage:
     "https://assets.chanhdai.com/images/screenshot-og-image-light.png?t=1764345394",
   namePronunciationUrl: "/audio/gangeya_name.mp3",
