@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360">
-  <rect width="100%" height="100%" rx="28" fill="#071133"/>
-  <g transform="translate(28,28)">
-    <rect x="18" y="18" width="88" height="88" rx="10" fill="#60a5fa" />
-    <rect x="130" y="18" width="88" height="88" rx="10" fill="#34d399" />
-    <rect x="72" y="130" width="88" height="88" rx="10" fill="#f472b6" />
-    <text x="18" y="260" font-family="Inter, sans-serif" font-size="24" fill="#cfe8ff">B2C Visualizer</text>
-  </g>
+<svg width="89" height="89" viewBox="0 0 89 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="12.5682" y1="12.6221" x2="37.5682" y2="39.6221" stroke="#FF671F" stroke-width="7"/>
+<line x1="37.5" y1="40" x2="37.5" y2="76" stroke="#FF671F" stroke-width="7"/>
+<line x1="38" y1="38.5" x2="76" y2="38.5" stroke="#FF671F" stroke-width="7"/>
+<circle cx="12.7049" cy="12.7048" r="9" transform="rotate(48.4572 12.7049 12.7048)" fill="#FF5402"/>
+<circle cx="37.7049" cy="38.7048" r="9" transform="rotate(48.4572 37.7049 38.7048)" fill="#FF5402"/>
+<circle cx="37.7049" cy="75.7048" r="9" transform="rotate(48.4572 37.7049 75.7048)" fill="#FF5402"/>
+<circle cx="75.7049" cy="38.7048" r="9" transform="rotate(48.4572 75.7049 38.7048)" fill="#FF5402"/>
 </svg>

@@ -3,7 +3,7 @@ import type { Project } from "../types/projects";
 export const PROJECTS: Project[] = [
     {
         id: "go_game",
-        title: "Go — Real-Time Multiplayer",
+        title: "Go - Real-Time Multiplayer",
         period: {
             start: "08.2019",
             end: "09.2019"
@@ -24,7 +24,7 @@ export const PROJECTS: Project[] = [
 - 🔁 Low-latency multiplayer with chats using WebSockets and a lightweight Node.js game server
 - 🧭 Robust game state management with reconnection handling and move validation
 - 🛠 Designed for modularity: client (go_game) and server (go_server) packaged for easy deployment`,
-        logo: "/images/project-logos/go_game.svg",
+        logo: "/images/project-logos/go_game.png",
         isExpanded: false
     },
 
@@ -47,14 +47,14 @@ export const PROJECTS: Project[] = [
         description: `Interactive toolkit that visualizes Azure AD B2C custom policy flows and orchestration steps, making complex auth logic immediately understandable.
 - 🔍 Converts XML policy files into readable graphs with collapsible nodes
 - 🧭 Highlights orchestration steps, technical profiles, and claim flows for easier debugging
-- ⚙️ Built for extensibility — supports loading base/extension policies and recursive resolution`,
+- ⚙️ Built for extensibility - supports loading base/extension policies and recursive resolution`,
         logo: "/images/project-logos/b2cvisualizer.svg",
         isExpanded: false
     },
 
     {
         id: "vyay",
-        title: "Vyay — Private Expense Manager",
+        title: "Vyay - Private Expense Manager",
         period: {
             start: "08.2024",
         },
@@ -70,13 +70,37 @@ export const PROJECTS: Project[] = [
             "Local-first Storage",
             "UI/UX"
         ],
-        description: `Vyay (Sanskrit: "expense") is a privacy-first expense management Android app built for modern phones. No data leaves the device — all analysis and summaries are computed locally. Vyay parses transaction SMS/notifications to extract amounts, dates, and merchant info, while also supporting manual entries, custom categorization, and insightful spending summaries.
+        description: `Vyay (Sanskrit: "expense") is a privacy-first expense management Android app built for modern phones. No data leaves the device - all analysis and summaries are computed locally. Vyay parses transaction SMS/notifications to extract amounts, dates, and merchant info, while also supporting manual entries, custom categorization, and insightful spending summaries.
 - 🔒 Privacy-first: all processing & storage remain on the user's phone
 - 🔍 SMS transaction parsing with robust pattern matching and categorization
 - 📈 Local summaries and reports, with manual edit and tagging support
 - ⚡ Kotlin + modern Android architecture (coroutines, Room, Jetpack components)`,
         logo: "/images/project-logos/vyay.png",
         isExpanded: true
+    },
+
+    {
+        id: "pangaea_game",
+        title: "Pangaea - World Building Game Prototype",
+        period: {
+            start: "02.2023",
+            end: "04.2023"
+        },
+        link: "https://github.com/ayegnag/pangaea_game",
+        skills: [
+            "Unity",
+            "C#",
+            "Procedural Generation",
+            "Game Design",
+            "Shaders",
+            "AI"
+        ],
+        description: `A strategic world-building prototype exploring emergent civilizations, procedural terrain, and player-driven narratives.
+- 🌍 Procedural terrain + biome systems with dynamic resource simulation
+- 🤖 Autonomous agent behaviours and simple AI for NPC civilizations
+- ✨ Focus on prototyping gameplay loops, polish, and a playable vertical slice`,
+        logo: "/images/project-logos/pangaea_game.png",
+        isExpanded: false
     },
 
     {
@@ -95,35 +119,11 @@ export const PROJECTS: Project[] = [
             "Scripting",
             "ASCII Art"
         ],
-        description: `Lightweight Python utility that converts images to expressive ASCII art — ideal for terminals, playful demos, and retro visuals.
+        description: `Lightweight Python utility that converts images to expressive ASCII art - ideal for terminals, playful demos, and retro visuals.
 - 🖼 Multiple brightness mapping modes and character sets for fine control
 - ⚙️ CLI friendly with flags for width, contrast, and output format
 - ♻️ Minimal dependencies and extensible codebase for custom renderers`,
         logo: "/images/project-logos/pyAsciiArt.svg",
-        isExpanded: false
-    },
-
-    {
-        id: "pangaea_game",
-        title: "Pangaea — World Building Game Prototype",
-        period: {
-            start: "02.2023",
-            end: "04.2023"
-        },
-        link: "https://github.com/ayegnag/pangaea_game",
-        skills: [
-            "Unity",
-            "C#",
-            "Procedural Generation",
-            "Game Design",
-            "Shaders",
-            "AI"
-        ],
-        description: `A strategic world-building prototype exploring emergent civilizations, procedural terrain, and player-driven narratives.
-- 🌍 Procedural terrain + biome systems with dynamic resource simulation
-- 🤖 Autonomous agent behaviours and simple AI for NPC civilizations
-- ✨ Focus on prototyping gameplay loops, polish, and a playable vertical slice`,
-        logo: "/images/project-logos/pangaea_game.svg",
         isExpanded: false
     },
 
