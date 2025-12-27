@@ -11,6 +11,7 @@ import { RouterContext } from '../routerContext'
 // import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { AppProviders } from '@/components/providers'
 import { SiteHeader } from '@/components/site-header'
+import { Analytics } from '@vercel/analytics/react'
 
 // import { USER } from "@/features/portfolio/data/user";
 // import { WebSite, WithContext } from 'schema-dts';
@@ -107,6 +108,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <main className="max-w-screen overflow-x-hidden px-2">{children}</main>
         {/* {children} */}
         </AppProviders>
+        <Analytics />
         {/* <TanStackDevtools
           config={{
             position: 'bottom-right',

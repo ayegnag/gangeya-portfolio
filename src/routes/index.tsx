@@ -17,7 +17,7 @@ import { Experiences } from '@/features/portfolio/components/experiences';
 import { Projects } from '@/features/portfolio/components/projects';
 import { TeckStack } from '@/features/portfolio/components/teck-stack';
 import { SocialLinks } from '@/features/portfolio/components/social-links';
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export const Route = createFileRoute('/')({
   beforeLoad: () => ({
