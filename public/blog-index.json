@@ -1,0 +1,11 @@
+[
+  {
+    "slug": "my-first-blog",
+    "metadata": {
+      "title": "My First Post",
+      "excerpt": "A short preview of the post content for the home page snippet.",
+      "createdAt": "2023-10-01T00:00:00.000Z",
+      "updatedAt": "2023-10-01T00:00:00.000Z"
+    }
+  }
+]

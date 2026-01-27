@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import { devtools } from '@tanstack/devtools-vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import { visualizer } from 'rollup-plugin-visualizer'
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import viteReact from '@vitejs/plugin-react'
 import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
@@ -10,6 +11,16 @@ const config = defineConfig({
   plugins: [
     devtools(),
     // this is the plugin that enables path aliases
+    nodePolyfills({
+      // Only include what you actually need (smaller bundle)
+      globals: {
+        Buffer: true,     // ← this is the main one you need
+        // process: true, // only if needed later
+        // global: true,
+      },
+      // Optional: protocol imports if any library uses them
+      protocolImports: true,
+    }),
     viteTsConfigPaths({
       projects: ['./tsconfig.json'],
     }),
