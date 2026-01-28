@@ -88,6 +88,7 @@
     "react-markdown": "^10.1.0",
     "react-medium-image-zoom": "^5.4.0",
     "react-resizable-panels": "^3.0.6",
+    "readable-stream": "^4.7.0",
     "recharts": "2.15.4",
     "rehype": "^13.0.2",
     "rehype-external-links": "^3.0.0",

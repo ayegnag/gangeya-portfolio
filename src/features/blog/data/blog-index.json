@@ -8,5 +8,15 @@
       "createdAt": "2025-12-25T00:00:00.000Z",
       "updatedAt": "2025-12-25T00:00:00.000Z"
     }
+  },
+  {
+    "slug": "habit_of_writing_as_dev",
+    "metadata": {
+      "title": "The Habit of Writing as a Developer",
+      "description": "Making notes as a developer is more than just recording information.",
+      "image": "/images/blog/write-notes2.png",
+      "createdAt": "2025-01-04T00:00:00.000Z",
+      "updatedAt": "2025-01-04T00:00:00.000Z"
+    }
   }
 ]
