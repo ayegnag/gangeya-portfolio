@@ -72,6 +72,10 @@ export function getRecentPosts() {
   return recentBlogs;
 }
 
+export function getAllBlogIndex(): BlogSummary[] {
+  return blogIndex as BlogSummary[];
+}
+
 export function findNeighbour(posts: Post[], slug: string) {
   const len = posts.length;
 

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { getAllBlogs } from '@/features/blog/data/posts';
+import { getAllBlogIndex, getAllBlogs } from '@/features/blog/data/posts';
 
 import { Suspense } from 'react';
 import { PostList } from "@/features/blog/components/post-list";
@@ -15,8 +15,8 @@ const searchSchema = z.object({
 export const Route = createFileRoute('/blog/')(
   {
     validateSearch: (search) => searchSchema.parse(search),
-    loader: () => getAllBlogs(), // or sort/filter here
-
+    // loader: () => getAllBlogs(), // or sort/filter here
+    loader: () => getAllBlogIndex(),
     component: BlogIndexPage,
   })
 

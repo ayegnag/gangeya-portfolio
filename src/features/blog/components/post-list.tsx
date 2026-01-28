@@ -1,7 +1,7 @@
-import type { Post } from "@/types/blog";
+import type { BlogSummary, Post } from "@/types/blog";
 import { PostItem } from "./post-item";
 
-export function PostList({ posts }: { posts: Post[] }) {
+export function PostList({ posts }: { posts: BlogSummary[] }) {
   return (
     <div className="relative pt-4">
       <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">

@@ -12,6 +12,7 @@ export interface BlogPostRendererProps {
 export interface BlogSummary {
   slug: string;
   metadata: PostMetadata;
+  readingTime: { minutes: number; words: number; images?: number; };
 }
 
 export type PostMetadata = {

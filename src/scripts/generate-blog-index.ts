@@ -10,13 +10,41 @@ const outputPath = path.join(__dirname, '../features/blog/data/blog-index.json')
 
 const files = fs.readdirSync(blogDir).filter(f => f.endsWith('.md'));
 
+// Helper function
+function estimateReadingTime(rawMarkdown: string, wordsPerMinute = 250): { minutes: number; words: number; images: number; } {
+  // Strip frontmatter (everything before first --- ... ---)
+  const contentWithoutFrontmatter = rawMarkdown.replace(/^---[\s\S]*?---\s*/, '').trim();
+
+  // Very rough word count (splits on whitespace, ignores some markdown noise)
+  const words = contentWithoutFrontmatter
+    .replace(/```[\s\S]*?```/g, '')          // remove code blocks
+    .replace(/`[^`]+`/g, '')                 // remove inline code
+    .replace(/!\[.*?\]\(.*?\)/g, ' image ')  // count images as 1 "word" placeholder
+    .replace(/[#*_\[\]]/g, '')               // strip some markdown
+    .split(/\s+/).filter(Boolean).length;
+
+  let minutes = Math.max(1, Math.ceil(words / wordsPerMinute));
+
+  // Optional: add 12 seconds per image (Medium-style)
+  const imageCount = (contentWithoutFrontmatter.match(/!\[.*?\]\(.*?\)/g) || []).length;
+  minutes += Math.ceil((imageCount * 12) / 60);
+
+  return { minutes, words, images: imageCount };
+}
+
 const summaries: BlogSummary[] = files.map(file => {
   const fullPath = path.join(blogDir, file);
-  const content = fs.readFileSync(fullPath, 'utf-8');
-  const { data: metadata } = matter(content);
+  const rawContent = fs.readFileSync(fullPath, 'utf-8');
+  const { data: frontmatter } = matter(rawContent);
   const slug = file.replace(/\.md$/, '');
 
-  return { slug, metadata: metadata as PostMetadata };
+  const readingTime = estimateReadingTime(rawContent);
+
+  return {
+    slug,
+    metadata: frontmatter as PostMetadata,
+    readingTime,
+  };
 });
 
 // Same sorting logic as before

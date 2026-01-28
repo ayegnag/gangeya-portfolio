@@ -7,6 +7,11 @@
       "image": "/images/blog/be-game-dev.png",
       "createdAt": "2026-01-08T00:00:00.000Z",
       "updatedAt": "2026-01-08T00:00:00.000Z"
+    },
+    "readingTime": {
+      "minutes": 4,
+      "words": 735,
+      "images": 1
     }
   },
   {
@@ -17,6 +22,11 @@
       "image": "/images/blog/golden-ratio.png",
       "createdAt": "2025-12-25T00:00:00.000Z",
       "updatedAt": "2025-12-25T00:00:00.000Z"
+    },
+    "readingTime": {
+      "minutes": 4,
+      "words": 512,
+      "images": 1
     }
   },
   {
@@ -27,6 +37,11 @@
       "image": "/images/blog/write-notes2.png",
       "createdAt": "2025-03-04T00:00:00.000Z",
       "updatedAt": "2025-03-04T00:00:00.000Z"
+    },
+    "readingTime": {
+      "minutes": 4,
+      "words": 506,
+      "images": 1
     }
   }
 ]

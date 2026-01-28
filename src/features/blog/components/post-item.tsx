@@ -62,12 +62,16 @@ export function PostItem({
           )}
         </h3>
 
-        <dl>
+        <dl className="inline-flex">
           <dt className="sr-only">Published on</dt>
-          <dd className="text-sm text-muted-foreground">
+          <dd className="text-sm text-muted-foreground w-1/2">
             <time dateTime={new Date(post.metadata.createdAt).toISOString()}>
               {format(new Date(post.metadata.createdAt), "dd.MM.yyyy")}
             </time>
+          </dd>
+          <dt className="sr-only">Estimated reading time</dt>
+          <dd className="text-sm text-muted-foreground w-1/2 text-right">
+            {post.readingTime.minutes} min read
           </dd>
         </dl>
       </div>

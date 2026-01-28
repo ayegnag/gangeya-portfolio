@@ -6,6 +6,8 @@ createdAt: 2026-01-08
 updatedAt: 2026-01-08
 ---
 
+![Game Jam](/images/blog/be-game-dev.png)
+
 # Why You Should Build a Game as a Developer
 
 As developers, we're often heads-down in building apps, APIs, or systems that solve specific problems. But there's something uniquely rewarding - and challenging - about stepping outside that comfort zone to create a game. It's not just a fun side project; it's a crucible that hones your engineering skills in ways everyday coding might not. Whether you're a front-end specialist obsessed with pixel-perfect UIs or a back-end engineer who thrives on logic and efficiency, building a game forces you to confront real-world constraints and user behaviors head-on. Let me explain why you should give it a try, and how it can make you a better dev overall.
