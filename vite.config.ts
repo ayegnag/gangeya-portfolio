@@ -20,6 +20,10 @@ const config = defineConfig({
       },
       // Optional: protocol imports if any library uses them
       protocolImports: true,
+      overrides: {
+        // Force modern readable-stream polyfill instead of old browserify one
+        stream: 'readable-stream',
+      },
     }),
     viteTsConfigPaths({
       projects: ['./tsconfig.json'],
@@ -36,6 +40,31 @@ const config = defineConfig({
     viteReact(),
     visualizer({ open: true, gzipSize: true }),
   ],
+  resolve: {
+    alias: {
+      // Optional safety net (prevents old stream-browserify from winning)
+      stream: 'readable-stream',
+      'node:stream': 'readable-stream',
+      'node:stream/web': 'readable-stream/lib/web',
+    },
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      define: {
+        global: 'globalThis',
+      },
+    },
+  },
+  build: {
+    // If SSR-related code is still leaking, consider:
+    commonjsOptions: {
+      ignoreTryCatch: false,
+    },
+    rollupOptions: {
+      // Optional: externalize SSR-only modules if you see them in client bundle
+      external: [/^node:/],
+    },
+  },
   // build: {
   //   rollupOptions: {
   //     output: {
@@ -106,11 +135,11 @@ const config = defineConfig({
   //     }
   //   }
   // },
-  ssr: {
-    external: ['shiki'],
+  // ssr: {
+  //   external: ['shiki'],
     // if you want to be extra safe you can also do:
     // external: ['shiki', 'shiki/dist/onig.wasm'],
-  },
+  // },
 })
 
 export default config

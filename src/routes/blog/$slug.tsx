@@ -179,7 +179,7 @@ function updateMetaTags(post: Post) {
 // Component
 function BlogPostPage() {
   const { post, previous, next } = Route.useLoaderData()
-  console.log('Loaded post:', post)
+  // console.log('Loaded post:', post)
   // Generate TOC in component (not serializable for loader)
   const toc = getTableOfContents(post.content)
 
