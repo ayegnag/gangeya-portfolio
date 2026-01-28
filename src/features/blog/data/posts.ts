@@ -1,71 +1,76 @@
-// import fs from "fs";
-// import matter from "gray-matter";
-// import path from "path";
-import blogIndex from "@/../public/blog-index.json" assert { type: 'json' };
+import blogIndex from "@/features/blog/data/blog-index.json" assert { type: 'json' };
 
-import type { BlogSummary } from "@/types/blog";
-import type { Post, PostMetadata } from "@/features/blog/types/post";
+import type { BlogSummary, Post } from "@/types/blog";
 
-// function parseFrontmatter(fileContent: string) {
-//   const file = matter(fileContent);
+import matter from 'gray-matter';
+import type { BlogPost, PostMetadata } from '@/types/blog'
 
-//   return {
-//     metadata: file.data as PostMetadata,
-//     content: file.content,
-//   };
-// }
 
-// function getMDXFiles(dir: string) {
-//   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
-// }
+const blogModules = import.meta.glob<string>(
+  '../content/*.md',
+  {
+    query: '?raw',
+    import: 'default',
+    eager: true,
+  }
+)
 
-// function readMDXFile(filePath: string) {
-//   const rawContent = fs.readFileSync(filePath, "utf-8");
-//   return parseFrontmatter(rawContent);
-// }
+export const getAllBlogs = (): BlogPost[] => {
+  const posts = Object.entries(blogModules).map(([path, rawContent]) => {
+    const slug = path
+      .split('/')
+      .pop()
+      ?.replace(/\.md$/, '') ?? '';
 
-// function getMDXData(dir: string) {
-//   const mdxFiles = getMDXFiles(dir);
+    const { data: metadata, content: mdContent } = matter(rawContent);
 
-//   return mdxFiles.map<Post>((file) => {
-//     const { metadata, content } = readMDXFile(path.join(dir, file));
+    return {
+      slug,
+      metadata: metadata as PostMetadata,
+      content: mdContent.trim(),
+    };
+  });
 
-//     const slug = path.basename(file, path.extname(file));
+  // Sort: pinned first (descending), then newest first
+  // return posts.sort((a, b) => {
+  //   // 1. Pinned posts come first
+  //   if (a.metadata.pinned && !b.metadata.pinned) return -1;
+  //   if (!a.metadata.pinned && b.metadata.pinned) return 1;
 
-//     return {
-//       metadata,
-//       slug,
-//       content,
-//     };
-//   });
-// }
+  //   // 2. Then sort by date descending (newest first)
+  //   // Use createdAt if present, fall back to date, fall back to 0 (oldest)
+  //   const dateA = a.metadata.createdAt ?? a.metadata.date ?? '1970-01-01';
+  //   const dateB = b.metadata.createdAt ?? b.metadata.date ?? '1970-01-01';
 
-// export function getAllPosts() {
-//   return getMDXData(path.join(process.cwd(), "src/features/blog/content")).sort(
-//     (a, b) => {
-//       if (a.metadata.pinned && !b.metadata.pinned) return -1;
-//       if (!a.metadata.pinned && b.metadata.pinned) return 1;
+  //   return new Date(dateB).getTime() - new Date(dateA).getTime();
+  // });
+  // console.log('Posts before sorting:', posts);
+  return posts.sort((a, b) => {
+    if (a.metadata.pinned !== b.metadata.pinned) {
+      return a.metadata.pinned ? -1 : 1;
+    }
+    return getPostDate(b.metadata) - getPostDate(a.metadata);
+  });
+};
 
-//       return (
-//         new Date(b.metadata.createdAt).getTime() -
-//         new Date(a.metadata.createdAt).getTime()
-//       );
-//     }
-//   );
-// }
+export const getBlogBySlug = (slug: string): BlogPost | undefined => {
+  console.log('Fetching blog post for slug:', slug);
+  return getAllBlogs().find((post) => {
+    console.log('Checking post slug:', post.slug);
+    return post.slug === slug;
+  });
+};
+
+function getPostDate(fm: PostMetadata): number {
+  const dateStr = fm.createdAt ?? fm.updatedAt ?? '1970-01-01';
+  const timestamp = new Date(dateStr).getTime();
+  return isNaN(timestamp) ? 0 : timestamp;
+}
 
 export function getRecentPosts() {
   const recentBlogs = (blogIndex as BlogSummary[]).slice(0, 5);
   return recentBlogs;
 }
-
-// export function getPostBySlug(slug: string) {
-//   return getAllPosts().find((post) => post.slug === slug);
-// }
-
-// export function getPostsByCategory(category: string) {
-//   return getAllPosts().filter((post) => post.metadata?.category === category);
-// }
 
 export function findNeighbour(posts: Post[], slug: string) {
   const len = posts.length;

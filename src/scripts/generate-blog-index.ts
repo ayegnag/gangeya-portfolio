@@ -6,7 +6,7 @@ import type { PostMetadata, BlogSummary } from '../types/blog';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const blogDir = path.join(__dirname, '../features/blog/content');
-const outputPath = path.join(__dirname, '../../public/blog-index.json');
+const outputPath = path.join(__dirname, '../features/blog/data/blog-index.json');
 
 const files = fs.readdirSync(blogDir).filter(f => f.endsWith('.md'));
 
