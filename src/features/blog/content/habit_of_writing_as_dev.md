@@ -2,8 +2,8 @@
 title: The Habit of Writing as a Developer
 description: Making notes as a developer is more than just recording information.
 image: "/images/blog/write-notes2.png"
-createdAt: 2025-01-04
-updatedAt: 2025-01-04
+createdAt: 2025-03-04
+updatedAt: 2025-03-04
 ---
 
 ![Taking Notes](/images/blog/write-notes2.png)

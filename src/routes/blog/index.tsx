@@ -22,7 +22,7 @@ export const Route = createFileRoute('/blog/')(
 
 const metadata = {
   title: "Blog",
-  description: "Read the latest articles and notes from what I've learned - through my own work and from the experiences of others.",
+  description: "Lessons gathered from building things, making mistakes, and learning from others along the way.",
 };
 
 

@@ -1,5 +1,15 @@
 [
   {
+    "slug": "why-devs-should-build-games",
+    "metadata": {
+      "title": "Why You Should Build a Game as a Developer",
+      "description": "Challenge yourself to grow, not just within the gameplay but as a dev.",
+      "image": "/images/blog/be-game-dev.png",
+      "createdAt": "2026-01-08T00:00:00.000Z",
+      "updatedAt": "2026-01-08T00:00:00.000Z"
+    }
+  },
+  {
     "slug": "understanding-ux-as-dev",
     "metadata": {
       "title": "Why understanding UX matters as a Dev",
@@ -15,8 +25,8 @@
       "title": "The Habit of Writing as a Developer",
       "description": "Making notes as a developer is more than just recording information.",
       "image": "/images/blog/write-notes2.png",
-      "createdAt": "2025-01-04T00:00:00.000Z",
-      "updatedAt": "2025-01-04T00:00:00.000Z"
+      "createdAt": "2025-03-04T00:00:00.000Z",
+      "updatedAt": "2025-03-04T00:00:00.000Z"
     }
   }
 ]
