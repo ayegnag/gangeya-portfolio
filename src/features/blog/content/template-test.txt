@@ -1,0 +1,38 @@
+---
+title: Template Test
+description: A short preview of the post content for the home page snippet.
+date: 2023-10-01
+createdAt: 2023-10-01
+updatedAt: 2023-10-01
+---
+
+
+# H1 Title
+
+## H2 Subtitle
+
+### H3 Section
+
+**Bold text** and *italic text*.
+
+- Unordered list item 1
+- Item 2
+
+1. Ordered list item 1
+2. Item 2
+
+> Blockquote text.
+
+[Link](https://example.com)
+
+![Image alt](/images/blogs/test.jpg)
+
+| Table Header 1 | Header 2 |
+| -------------- | -------- |
+| Cell 1        | Cell 2   |
+
+`Inline code`
+
+```js
+// Code block
+console.log('Hello');

@@ -301,7 +301,7 @@ function BlogPostPage() {
             {/* <MDX code={post.content} /> */}
             <BlogPostRenderer
               content={post.content}
-              className='mt-8'
+              className='my-8'
             />
           </div>
         </Prose>

@@ -1,13 +1,12 @@
 [
   {
-    "slug": "my-first-blog",
+    "slug": "understanding-ux-as-dev",
     "metadata": {
-      "title": "My First Post",
-      "excerpt": "A short preview of the post content for the home page snippet.",
-      "description": "A short preview of the post content for the home page snippet.",
-      "date": "2023-10-01T00:00:00.000Z",
-      "createdAt": "2023-10-01T00:00:00.000Z",
-      "updatedAt": "2023-10-01T00:00:00.000Z"
+      "title": "Why understanding UX matters as a Dev",
+      "description": "A developer doesn't just build screens, they build solutions.",
+      "image": "/images/blog/golden-ratio.png",
+      "createdAt": "2025-12-25T00:00:00.000Z",
+      "updatedAt": "2025-12-25T00:00:00.000Z"
     }
   }
 ]

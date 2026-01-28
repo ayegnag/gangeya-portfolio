@@ -129,7 +129,7 @@ export const BlogPostRenderer: React.FC<BlogPostRendererProps> = ({
           img: ({ src, alt, ...props }) => {
             let finalSrc = src ?? ''
             if (finalSrc && !finalSrc.startsWith('http') && !finalSrc.startsWith('/')) {
-              finalSrc = `/images/blogs/${finalSrc.replace(/^\.\//, '')}`
+              finalSrc = `/images/blog/${finalSrc.replace(/^\.\//, '')}`
             }
             return <img src={finalSrc} alt={alt} className="rounded-lg" {...props} />
           },

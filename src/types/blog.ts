@@ -17,7 +17,6 @@ export interface BlogSummary {
 export type PostMetadata = {
   title: string;
   description: string;
-  excerpt: string;
   /**
    * Social/OG image URL for the post.
    * Use an absolute URL or a path under /public. Recommended size: 1200x630.

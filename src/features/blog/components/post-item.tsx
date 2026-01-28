@@ -30,6 +30,7 @@ export function PostItem({
             alt={post.metadata.title}
             width={1200}
             height={630}
+            className="object-cover"
             // priority={shouldPreloadImage}
             // unoptimized
           />
