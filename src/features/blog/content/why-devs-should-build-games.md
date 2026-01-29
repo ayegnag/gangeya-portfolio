@@ -1,12 +1,12 @@
 ---
 title: Why You Should Build a Game as a Developer
 description: Challenge yourself to grow, not just within the gameplay but as a dev.
-image: "/images/blog/be-game-dev.png"
+image: "/images/blog/be-game-dev2.png"
 createdAt: 2026-01-08
 updatedAt: 2026-01-08
 ---
 
-![Game Jam](/images/blog/be-game-dev.png)
+![Game Jam](/images/blog/be-game-dev2.png)
 
 # Why You Should Build a Game as a Developer
 
