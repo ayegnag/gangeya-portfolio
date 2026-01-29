@@ -15,6 +15,21 @@
     }
   },
   {
+    "slug": "lessons-of-solo-startup-dev",
+    "metadata": {
+      "title": "Building Under Uncertainty - Lessons from a Solo Startup a Decade Ago",
+      "description": "A reflection on building a startup solo under tight constraints, the decisions that shaped it, and the lessons that still guide how I build software today.",
+      "image": "/images/blog/solo-startup.png",
+      "createdAt": "2026-01-03T00:00:00.000Z",
+      "updatedAt": "2026-01-03T00:00:00.000Z"
+    },
+    "readingTime": {
+      "minutes": 7,
+      "words": 1313,
+      "images": 1
+    }
+  },
+  {
     "slug": "understanding-ux-as-dev",
     "metadata": {
       "title": "Why understanding UX matters as a Dev",

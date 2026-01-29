@@ -52,7 +52,7 @@ export function PostItem({
         </div>
       )}
 
-      <div className="flex flex-col gap-1 p-2">
+      <div className="flex flex-col gap-1 p-2 h-full justify-between">
         <h3 className="text-lg leading-snug font-medium text-balance underline-offset-4 group-hover/post:underline">
           {post.metadata.title}
           {post.metadata.new && (
