@@ -58,7 +58,11 @@ export function SiteFooter() {
             </a> */}
 
             <Separator />
-            <a href="//www.dmca.com/Protection/Status.aspx?ID=0a4d0a95-ec16-4aaa-91d0-cc2d70195fe9" title="DMCA.com Protection Status" className="dmca-badge">
+            <a href="//www.dmca.com/Protection/Status.aspx?ID=0a4d0a95-ec16-4aaa-91d0-cc2d70195fe9"
+                title="DMCA.com Protection Status"
+                className="dmca-badge"
+                rel="noopener noreferrer nofollow" // nofollow helps some crawlers skip
+                data-no-prerender-crawl="true">
               <img src ="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=0a4d0a95-ec16-4aaa-91d0-cc2d70195fe9"  alt="DMCA.com Protection Status" />
             </a>
             <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>

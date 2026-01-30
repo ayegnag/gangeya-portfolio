@@ -35,6 +35,7 @@ const config = defineConfig({
         autoSubfolderIndex: true,
         autoStaticPathsDiscovery: true,
         // you can leave the advanced options at defaults for now
+        crawlLinks: false,          // ← this stops following external/internal links
       },
     }),
     viteReact(),
