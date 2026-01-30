@@ -12,6 +12,7 @@ import { RouterContext } from '../routerContext'
 import { AppProviders } from '@/components/providers'
 import { SiteHeader } from '@/components/site-header'
 import { Analytics } from '@vercel/analytics/react'
+import { SiteFooter } from '@/components/site-footer';
 
 // import { USER } from "@/features/portfolio/data/user";
 // import { WebSite, WithContext } from 'schema-dts';
@@ -107,6 +108,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         {!hideHeader && <SiteHeader />}
         <main className="max-w-screen overflow-x-hidden px-2">{children}</main>
         {/* {children} */}
+        <SiteFooter></SiteFooter>
         </AppProviders>
         <Analytics />
         {/* <TanStackDevtools

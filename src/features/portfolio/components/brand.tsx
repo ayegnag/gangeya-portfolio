@@ -1,7 +1,7 @@
 // import dynamic from "next/dynamic";
 
 import { GangeyaMark } from "@/components/gangeya-mark";
-import { ChanhDaiWordmark } from "@/components/chanhdai-wordmark";
+import { GangeyaWordmark } from "@/components/gangeya-wordmark";
 
 import { Panel, PanelHeader, PanelTitle } from "./panel";
 
@@ -41,7 +41,7 @@ export function Brand() {
           </div>
 
           <div className="screen-line-after flex items-center justify-center pr-8 after:z-1">
-            <ChanhDaiWordmark className="h-6 w-auto sm:h-10" />
+            <GangeyaWordmark className="h-6 w-auto sm:h-10" />
           </div>
         </div>
       </BrandContextMenu>

@@ -36,18 +36,18 @@ export function SiteFooter() {
 
         <div className="screen-line-before screen-line-after flex w-full before:z-1 after:z-1">
           <div className="mx-auto flex items-center justify-center gap-3 border-x border-edge bg-background px-4">
-            <a
+            {/* <a
               className="flex font-mono text-xs font-medium text-muted-foreground"
               href={`${SITE_INFO.url}/llms.txt`}
               target="_blank"
               rel="noopener noreferrer"
             >
               llms.txt
-            </a>
+            </a> */}
 
-            <Separator />
+            {/* <Separator /> */}
 
-            <a
+            {/* <a
               className="flex items-center text-muted-foreground transition-colors hover:text-foreground"
               href={`${SITE_INFO.url}/rss`}
               target="_blank"
@@ -55,22 +55,14 @@ export function SiteFooter() {
             >
               <RssIcon className="size-4" />
               <span className="sr-only">RSS</span>
-            </a>
+            </a> */}
 
             <Separator />
-
-            <a
-              className="flex text-muted-foreground transition-colors hover:text-foreground"
-              href={
-                process.env.NEXT_PUBLIC_DMCA_URL ||
-                "https://www.dmca.com/ProtectionPro.aspx"
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icons.dmca className="h-5 w-auto" />
-              <span className="sr-only">DMCA.com Protection Status</span>
+            <a href="//www.dmca.com/Protection/Status.aspx?ID=0a4d0a95-ec16-4aaa-91d0-cc2d70195fe9" title="DMCA.com Protection Status" className="dmca-badge">
+              <img src ="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=0a4d0a95-ec16-4aaa-91d0-cc2d70195fe9"  alt="DMCA.com Protection Status" />
             </a>
+            <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+            <Separator />
           </div>
         </div>
       </div>

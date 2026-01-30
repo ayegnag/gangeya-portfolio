@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { copyText } from "@/utils/copy";
 
 import { GangeyaMark, getMarkSVG } from "./gangeya-mark";
-import { getWordmarkSVG } from "./chanhdai-wordmark";
+import { getWordmarkSVG } from "./gangeya-wordmark";
 import {
   ContextMenu,
   ContextMenuContent,
