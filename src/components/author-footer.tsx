@@ -5,16 +5,15 @@ export function AuthorFooter() {
   const intro = "Gangeya writes about software through the lens of experience, and enjoys building things, understanding why they work, and reflecting on what real-world experience teaches beyond frameworks and tools."
   
   return (
-    <div className="max-w-screen overflow-x-hidden px-2">
-      <div className="screen-line-before mx-auto border-x border-edge pt-4 md:max-w-3xl">
+    <div className="w-full overflow-x-hidden">
+      <div className="screen-line-before mx-auto pt-4 md:max-w-3xl">
         <div className="screen-line-before screen-line-after flex w-full before:z-1 after:z-1">
           <div className="mx-auto flex items-center justify-center gap-3 border-x border-edge bg-background p-4">
-            <div className="w-24">
+            <div className="w-48 md:w-32">
               <GangeyaMark/>
             </div>
             <Separator />
             <p className="font-mono text-sm text-balance text-muted-foreground">{ intro }</p>
-            <Separator />
           </div>
         </div>
       </div>
