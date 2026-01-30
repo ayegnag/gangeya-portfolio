@@ -7,8 +7,10 @@ import { getRecentPosts } from "@/features/blog/data/posts";
 
 import { Panel, PanelHeader, PanelTitle } from "./panel";
 
+const RECENT_POSTS_COUNT = 4;
+
 export function Blog() {
-const recentPosts = getRecentPosts();
+const recentPosts = getRecentPosts().slice(0, RECENT_POSTS_COUNT);
 
   return (
     <Panel id="blog">
@@ -31,7 +33,7 @@ const recentPosts = getRecentPosts();
 
       <div className="screen-line-before flex justify-center py-2">
         <Button variant="default" asChild>
-          <Link to="/blog">
+          <Link to="/blog" search={{ q: "" }}>
             All Posts
             <ArrowRightIcon />
           </Link>

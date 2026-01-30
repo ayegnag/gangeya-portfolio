@@ -45,6 +45,21 @@
     }
   },
   {
+    "slug": "lessons_from_fhir_integration",
+    "metadata": {
+      "title": "Navigating FHIR in Real-World Systems",
+      "description": "A practical, experience-driven look at working with FHIR in real healthcare systems, beyond the specification and surface-level tutorials. It covers the concepts, trade-offs, and lessons that matter when building interoperable, compliant software in the real world.",
+      "image": "/images/blog/fhir-lessons.png",
+      "createdAt": "2025-11-24T00:00:00.000Z",
+      "updatedAt": "2025-11-24T00:00:00.000Z"
+    },
+    "readingTime": {
+      "minutes": 6,
+      "words": 1119,
+      "images": 1
+    }
+  },
+  {
     "slug": "habit_of_writing_as_dev",
     "metadata": {
       "title": "The Habit of Writing as a Developer",

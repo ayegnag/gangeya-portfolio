@@ -11,6 +11,7 @@ export const USER: User = {
   flipSentences: [
     "Creating with code. Small details matter.",
     "Full-Stack Developer",
+    "Generalist",
     "Design Thinker",
     "Maker at Heart",
   ],
