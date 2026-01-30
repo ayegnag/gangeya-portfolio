@@ -77,6 +77,7 @@ import {
 import type { Post } from "@/features/blog/types/post"
 import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
+import { AuthorFooter } from '@/components/author-footer'
 
 // Route definition
 export const Route = createFileRoute('/blog/$slug')({
@@ -308,6 +309,7 @@ function BlogPostPage() {
 
         <div className="screen-line-before h-4 w-full" />
       </div>
+      <AuthorFooter />
     </>
   )
 }
