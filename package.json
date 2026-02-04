@@ -23,6 +23,7 @@
   "dependencies": {
     "@c15t/react": "^1.8.1",
     "@date-fns/tz": "github:date-fns/tz",
+    "@excalidraw/excalidraw": "^0.18.0",
     "@hookform/resolvers": "^5.2.2",
     "@mdx-js/react": "^3.1.1",
     "@mdx-js/rollup": "^3.1.1",

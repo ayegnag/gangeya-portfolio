@@ -50,6 +50,10 @@ const config = defineConfig({
     },
   },
   optimizeDeps: {
+    include: [
+      '@excalidraw/excalidraw',
+      'react-dom/client',
+    ],  
     esbuildOptions: {
       define: {
         global: 'globalThis',
@@ -59,6 +63,8 @@ const config = defineConfig({
   build: {
     // If SSR-related code is still leaking, consider:
     commonjsOptions: {
+      include: [/node_modules/],
+      transformMixedEsModules: true,
       ignoreTryCatch: false,
     },
     rollupOptions: {

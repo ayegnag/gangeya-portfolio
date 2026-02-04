@@ -1,5 +1,3 @@
-"use client";
-
 import { MonitorIcon, MoonStarIcon, SunIcon } from "lucide-react";
 import { motion } from "motion/react";
 import { useTheme } from "next-themes";
