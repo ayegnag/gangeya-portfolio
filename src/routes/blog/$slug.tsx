@@ -78,6 +78,7 @@ import type { Post } from "@/features/blog/types/post"
 import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
 import { AuthorFooter } from '@/components/author-footer'
+import { ScrollToTop } from '@/components/scroll-to-top'
 
 // Route definition
 export const Route = createFileRoute('/blog/$slug')({
@@ -307,9 +308,73 @@ function BlogPostPage() {
           </div>
         </Prose>
 
-        <div className="screen-line-before h-4 w-full" />
+        <div className="screen-line-after h-4 w-full" />
+
+        <div className="flex items-center justify-between p-2 pl-4">
+          <Button
+            className="h-7 gap-2 rounded-lg px-0 font-mono text-muted-foreground"
+            variant="link"
+            asChild
+          >
+            <Link to="/blog" search={{ q: '' }}>
+              <ArrowLeftIcon />
+              Blog
+            </Link>
+          </Button>
+
+          <div className="flex items-center gap-2">
+            {previous && (
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="secondary" size="icon-sm" asChild>
+                    <Link to="/blog/$slug" params={{ slug: previous.slug }}>
+                      <ArrowLeftIcon />
+                      <span className="sr-only">Previous</span>
+                    </Link>
+                  </Button>
+                </TooltipTrigger>
+
+                <TooltipContent className="pr-2 pl-3">
+                  <div className="flex items-center gap-3">
+                    Previous Post
+                    <KbdGroup>
+                      <Kbd>
+                        <ArrowLeftIcon />
+                      </Kbd>
+                    </KbdGroup>
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+            )}
+
+            {next && (
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="secondary" size="icon-sm" asChild>
+                    <Link to="/blog/$slug" params={{ slug: next.slug }}>
+                      <span className="sr-only">Next</span>
+                      <ArrowRightIcon />
+                    </Link>
+                  </Button>
+                </TooltipTrigger>
+
+                <TooltipContent className="pr-2 pl-3">
+                  <div className="flex items-center gap-3">
+                    Next Post
+                    <KbdGroup>
+                      <Kbd>
+                        <ArrowRightIcon />
+                      </Kbd>
+                    </KbdGroup>
+                  </div>
+                </TooltipContent>
+              </Tooltip>
+            )}
+          </div>
+        </div>
       </div>
       <AuthorFooter />
+      <ScrollToTop />
     </>
   )
 }

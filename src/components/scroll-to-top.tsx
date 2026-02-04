@@ -1,5 +1,3 @@
-"use client";
-
 import { ArrowUpIcon } from "lucide-react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
