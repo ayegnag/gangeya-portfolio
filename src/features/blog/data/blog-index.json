@@ -1,5 +1,20 @@
 [
   {
+    "slug": "habit_of_writing_as_dev copy",
+    "metadata": {
+      "title": "Understanding Personal Taste as a Core Differentiator",
+      "description": "A look into how to understand and leverage personal taste in an AI-driven age.",
+      "image": "/images/blog/personal-taste.png",
+      "createdAt": "2026-01-26T00:00:00.000Z",
+      "updatedAt": "2026-01-26T00:00:00.000Z"
+    },
+    "readingTime": {
+      "minutes": 5,
+      "words": 998,
+      "images": 1
+    }
+  },
+  {
     "slug": "why-devs-should-build-games",
     "metadata": {
       "title": "Why You Should Build a Game as a Developer",
