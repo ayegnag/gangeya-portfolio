@@ -10,7 +10,7 @@ import { About } from '@/features/portfolio/components/about';
 // import { Awards } from '@/features/portfolio/components/awards';
 import { Blog } from '@/features/portfolio/components/blog';
 // import { Bookmarks } from '@/features/portfolio/components/bookmarks';
-import { Brand } from '@/features/portfolio/components/brand';
+// import { Brand } from '@/features/portfolio/components/brand';
 // import { Certifications } from '@/features/portfolio/components/certifications';
 import { Experiences } from '@/features/portfolio/components/experiences';
 // import { GitHubContributions } from '@/features/portfolio/components/github-contributions';
@@ -20,9 +20,10 @@ import { SocialLinks } from '@/features/portfolio/components/social-links';
 import { Analytics } from "@vercel/analytics/react";
 
 export const Route = createFileRoute('/')({
-  beforeLoad: () => ({
+  staticData: {
     hideHeader: false,
-  }),
+    hideFooter: false,
+  },
   component: App
 })
 

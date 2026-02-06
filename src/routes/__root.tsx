@@ -11,7 +11,7 @@ import { RouterContext } from '../routerContext'
 // import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { AppProviders } from '@/components/providers'
 import { SiteHeader } from '@/components/site-header'
-import { Analytics } from '@vercel/analytics/react'
+// import { Analytics } from '@vercel/analytics/react'
 import { SiteFooter } from '@/components/site-footer';
 
 // import { USER } from "@/features/portfolio/data/user";
@@ -46,7 +46,7 @@ function getTitle(match: any) {
 // `;
 
 export const Route = createRootRouteWithContext<RouterContext>()({
-  head: ({match}) => ({
+  head: ({ match }) => ({
     meta: [
       {
         charSet: 'utf-8',
@@ -75,11 +75,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   const hideHeader = useRouterState({
     select: (s) => {
       const matches = s.matches
+      // console.log('matches', matches)
       const active = matches[matches.length - 1]
 
-      const hasHideHeaderFlag = matches.some(
-        (m) => (m.context as RouterContext | undefined)?.hideHeader,
-      )
+      // const hasHideHeaderFlag = matches.some(
+      //   (m) => (m.context as RouterContext | undefined)?.hideHeader,
+      // )
+      const hasHideHeaderFlag = matches.some((m) => m.staticData?.hideHeader)
 
       const isNotFound = (active as any)?.globalNotFound === true
 
@@ -87,30 +89,31 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     },
   })
 
-  
+  const hideFooter = useRouterState({
+  select: (s) => {
+    const matches = s.matches
+    const active = matches[matches.length - 1]
+
+    const hasHideFooterFlag = matches.some((m) => m.staticData?.hideFooter)
+
+    const isNotFound = (active as any)?.globalNotFound === true
+    return hasHideFooterFlag || isNotFound
+  },
+})
+
+
+
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
-        {/* <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{ __html: darkModeScript }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(getWebSiteJsonLd()).replace(/</g, "\\u003c"),
-          }}
-        /> */}
       </head>
       <body>
         <AppProviders>
-        {!hideHeader && <SiteHeader />}
-        <main className="max-w-screen overflow-x-hidden px-2">{children}</main>
-        {/* {children} */}
-        <SiteFooter></SiteFooter>
+          {!hideHeader && <SiteHeader />}
+          <main className="max-w-screen overflow-x-hidden px-2">{children}</main>
+          {!hideFooter && <SiteFooter></SiteFooter>}
         </AppProviders>
-        <Analytics />
         {/* <TanStackDevtools
           config={{
             position: 'bottom-right',

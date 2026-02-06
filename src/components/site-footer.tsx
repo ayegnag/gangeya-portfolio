@@ -1,8 +1,8 @@
-import { RssIcon } from "lucide-react";
+'use-client';
 
 import { SITE_INFO, SOURCE_CODE_GITHUB_URL } from "@/config/site";
-
-import { Icons } from "./icons";
+// import { RssIcon } from "lucide-react";
+// import { Icons } from "./icons";
 
 export function SiteFooter() {
   return (
@@ -65,7 +65,7 @@ export function SiteFooter() {
                 data-no-prerender-crawl="true">
               <img src ="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=0a4d0a95-ec16-4aaa-91d0-cc2d70195fe9"  alt="DMCA.com Protection Status" />
             </a>
-            <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+            {/* <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script> */}
             <Separator />
           </div>
         </div>

@@ -1,3 +1,4 @@
 export type RouterContext = {
-  hideHeader?: boolean
+  hideHeader?: boolean,
+  hideFooter?: boolean,
 }
