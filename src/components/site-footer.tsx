@@ -1,5 +1,3 @@
-'use-client';
-
 import { SITE_INFO, SOURCE_CODE_GITHUB_URL } from "@/config/site";
 // import { RssIcon } from "lucide-react";
 // import { Icons } from "./icons";

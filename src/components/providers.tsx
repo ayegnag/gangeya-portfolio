@@ -1,5 +1,5 @@
 // import { AppProgressProvider } from "@bprogress/next";
-// import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Provider as JotaiProvider } from "jotai";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from '@vercel/analytics/react'
@@ -35,7 +35,7 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
 
         <Toaster position="top-center" />
         <Analytics />
-        {/* <SpeedInsights /> */}
+        <SpeedInsights />
       </ThemeProvider>
     </JotaiProvider>
     </QueryClientProvider>
