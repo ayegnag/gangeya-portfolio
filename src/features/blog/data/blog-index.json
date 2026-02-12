@@ -1,6 +1,6 @@
 [
   {
-    "slug": "habit_of_writing_as_dev copy",
+    "slug": "understanding_personal_taste",
     "metadata": {
       "title": "Understanding Personal Taste as a Core Differentiator",
       "description": "A look into how to understand and leverage personal taste in an AI-driven age.",
@@ -71,6 +71,21 @@
     "readingTime": {
       "minutes": 6,
       "words": 1120,
+      "images": 1
+    }
+  },
+  {
+    "slug": "three-lives-of-design-system",
+    "metadata": {
+      "title": "The Three Lives of a Design System: A Practical Guide to Scaling Consistency",
+      "description": "An experiential lesson about the lifecycle of design systems, focusing on how to scale consistency across platforms and products, with practical advice.",
+      "image": "/images/blog/design-system.png",
+      "createdAt": "2025-10-13T00:00:00.000Z",
+      "updatedAt": "2025-10-13T00:00:00.000Z"
+    },
+    "readingTime": {
+      "minutes": 6,
+      "words": 1135,
       "images": 1
     }
   },
