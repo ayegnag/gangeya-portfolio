@@ -35,6 +35,15 @@ export const MAIN_NAV: NavItem[] = [
   //   title: "Sponsors",
   //   href: "/sponsors",
   // },
+  {
+    title: "More",
+    children: [
+      {
+        title: "Hobbies",
+        href: "/hobbies",
+      },
+    ],
+  },
 ];
 
 export const GITHUB_USERNAME = "ayegnag";

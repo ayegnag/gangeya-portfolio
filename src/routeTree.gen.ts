@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as BlackboardRouteImport } from './routes/blackboard'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as HobbiesIndexRouteImport } from './routes/hobbies/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 
@@ -22,6 +23,11 @@ const BlackboardRoute = BlackboardRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HobbiesIndexRoute = HobbiesIndexRouteImport.update({
+  id: '/hobbies/',
+  path: '/hobbies/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/blackboard': typeof BlackboardRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog': typeof BlogIndexRoute
+  '/hobbies': typeof HobbiesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blackboard': typeof BlackboardRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog': typeof BlogIndexRoute
+  '/hobbies': typeof HobbiesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,14 @@ export interface FileRoutesById {
   '/blackboard': typeof BlackboardRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/hobbies/': typeof HobbiesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blackboard' | '/blog/$slug' | '/blog'
+  fullPaths: '/' | '/blackboard' | '/blog/$slug' | '/blog' | '/hobbies'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blackboard' | '/blog/$slug' | '/blog'
-  id: '__root__' | '/' | '/blackboard' | '/blog/$slug' | '/blog/'
+  to: '/' | '/blackboard' | '/blog/$slug' | '/blog' | '/hobbies'
+  id: '__root__' | '/' | '/blackboard' | '/blog/$slug' | '/blog/' | '/hobbies/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +76,7 @@ export interface RootRouteChildren {
   BlackboardRoute: typeof BlackboardRoute
   BlogSlugRoute: typeof BlogSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  HobbiesIndexRoute: typeof HobbiesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hobbies/': {
+      id: '/hobbies/'
+      path: '/hobbies'
+      fullPath: '/hobbies'
+      preLoaderRoute: typeof HobbiesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -107,6 +124,7 @@ const rootRouteChildren: RootRouteChildren = {
   BlackboardRoute: BlackboardRoute,
   BlogSlugRoute: BlogSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
+  HobbiesIndexRoute: HobbiesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
