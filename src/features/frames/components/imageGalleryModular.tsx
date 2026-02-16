@@ -124,7 +124,7 @@ const ImageGalleryModular = () => {
               Frames
             </h1>
             <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400 font-light tracking-wide">
-              {isLoading ? 'Loading...' : `${images.length} ${images.length === 1 ? 'image' : 'images'}`} | A small collection of frames I’ve captured over the years.
+              {isLoading ? 'Loading...' : `${images.length} ${images.length === 1 ? 'image' : 'images'}`} | A small collection of captured moments out of hobby over the years.
             </p>
           </div>
         </header>

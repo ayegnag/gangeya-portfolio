@@ -46,6 +46,25 @@ export const MAIN_NAV: NavItem[] = [
   },
 ];
 
+export const MAIN_NAV_MOB: NavItem[] = [
+  {
+    title: "Portfolio",
+    href: "/",
+  },
+  {
+    title: "Blog",
+    href: "/blog",
+  },
+  {
+    title: "Blackboard",
+    href: "/blackboard",
+  },
+  {
+    title: "Hobbies",
+    href: "/hobbies",
+  },
+];
+
 export const GITHUB_USERNAME = "ayegnag";
 export const SOURCE_CODE_GITHUB_REPO = "ayegnag/gangeya-portfolio";
 export const SOURCE_CODE_GITHUB_URL = "https://github.com/ayegnag/gangeya-portfolio";

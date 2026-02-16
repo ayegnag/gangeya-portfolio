@@ -3,7 +3,7 @@ import { Link } from '@tanstack/react-router'
 
 import { DesktopNav } from "@/components/desktop-nav";
 // import { NavItemGitHub } from "@/components/nav-item-github";
-import { MAIN_NAV } from "@/config/site";
+import { MAIN_NAV, MAIN_NAV_MOB } from "@/config/site";
 // import { getAllPosts } from "@/features/blog/data/posts";
 import { cn } from "@/lib/utils";
 
@@ -53,7 +53,7 @@ export function SiteHeader() {
           {/* <NavItemGitHub /> */}
           <span className="mx-2 flex h-4 w-px bg-border" />
           <ThemeToggle />
-          <MobileNav className="md:hidden" items={MAIN_NAV} />
+          <MobileNav className="md:hidden" items={MAIN_NAV_MOB} />
         </div>
       </div>
     </SiteHeaderWrapper>
