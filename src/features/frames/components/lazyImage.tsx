@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { LazyImageProps } from '../types/image';
 
 /**
  * LazyImage Component

@@ -1,36 +1,30 @@
-interface LazyImageProps {
+export interface LazyImageProps {
     src: string;
     alt: string;
     onClick: () => void;
     className?: string;
 }
-interface ImageCardProps {
-    image: {
-        id: number;
-        src: string;
-        alt: string;
-    };
-    onImageClick: (image: { id: number; src: string; alt: string }) => void;
-}
-interface ImageModalProps {
-    image: {
-        src: string;
-        alt: string;
-    } | null;
-    onClose: () => void;
-}
-interface Image {
-    id: number;
-    src: string;
-    alt: string;
+
+// Base image shape — every image has these
+export interface Image {
+  id: number;
+  src: string;
+  alt: string;
+  filename: string;
+  caption: string;
+  date: string;
+  tags?: string[];
 }
 
-type ImageList = null | { id: number; src: string; alt: string; filename: string; }[]
+// Nullable list used before fetch resolves
+export type ImageList = Image[] | null;
 
+export interface ImageCardProps {
+  image: Image;
+  onImageClick: (image: Image) => void;
+}
 
-interface LazyImageProps {
-    src: string;
-    alt: string;
-    onClick: () => void;
-    className?: string;
+export interface ImageModalProps {
+  image: Image | null;
+  onClose: () => void;
 }

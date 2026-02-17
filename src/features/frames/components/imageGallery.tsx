@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { LazyImageProps, ImageCardProps, ImageModalProps, Image } from '../types/image';
 
 // ============================================
 // LAZY IMAGE COMPONENT
@@ -148,16 +149,16 @@ const ImageGallery = () => {
         const loadImages = () => {
             // Example: Create an array of image paths
             // You'll need to replace this with your actual image list
-            const imageList = [
-                { id: 1, src: '/frames/image1.jpg', alt: 'Gallery image 1' },
-                { id: 2, src: '/frames/image2.jpg', alt: 'Gallery image 2' },
-                { id: 3, src: '/frames/image3.jpg', alt: 'Gallery image 3' },
-                { id: 4, src: '/frames/image4.jpg', alt: 'Gallery image 4' },
-                { id: 5, src: '/frames/image5.jpg', alt: 'Gallery image 5' },
-                { id: 6, src: '/frames/image6.jpg', alt: 'Gallery image 6' },
-                { id: 7, src: '/frames/image7.jpg', alt: 'Gallery image 7' },
-                { id: 8, src: '/frames/image8.jpg', alt: 'Gallery image 8' },
-                { id: 9, src: '/frames/image9.jpg', alt: 'Gallery image 9' },
+            const imageList: Image[] = [
+                { id: 1, src: '/frames/image1.jpg', alt: 'Gallery image 1', filename: "1234", caption: "Wow", date: "2024-01-01"},
+                { id: 2, src: '/frames/image2.jpg', alt: 'Gallery image 2', filename: "1234", caption: "Wow", date: "2024-01-01"},
+                { id: 3, src: '/frames/image3.jpg', alt: 'Gallery image 3', filename: "1234", caption: "Wow", date: "2024-01-01"},
+                { id: 4, src: '/frames/image4.jpg', alt: 'Gallery image 4', filename: "1234", caption: "Wow", date: "2024-01-01"},
+                { id: 5, src: '/frames/image5.jpg', alt: 'Gallery image 5', filename: "1234", caption: "Wow", date: "2024-01-01"},
+                { id: 6, src: '/frames/image6.jpg', alt: 'Gallery image 6', filename: "1234", caption: "Wow", date: "2024-01-01"},
+                { id: 7, src: '/frames/image7.jpg', alt: 'Gallery image 7', filename: "1234", caption: "Wow", date: "2024-01-01"},
+                { id: 8, src: '/frames/image8.jpg', alt: 'Gallery image 8', filename: "1234", caption: "Wow", date: "2024-01-01"},
+                { id: 9, src: '/frames/image9.jpg', alt: 'Gallery image 9', filename: "1234", caption: "Wow", date: "2024-01-01"},
                 // Add more images as needed
             ];
             setImages(imageList);

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import ImageCard from './imageCard';
 import ImageModal from './imageModal';
-import { loadImagesFromDirectory } from '../utils/imageLoader';
+import { Image, ImageList } from '../types/image';
 
 /**
  * ImageGallery Component - Modular Version
@@ -10,32 +10,54 @@ import { loadImagesFromDirectory } from '../utils/imageLoader';
  * Use this if you prefer better file organization
  * 
  * Main responsibilities:
- * - Load images from source
+ * - Load images with metadata from JSON
  * - Manage responsive column layout
- * - Handle modal state
+ * - Handle modal state with URL routing
  * - Coordinate between child components
  */
 const ImageGalleryModular = () => {
   const [selectedImage, setSelectedImage] = useState<Image | null>(null);
   const [images, setImages] = useState<Image[]>([]);
-  const [columnCount, setColumnCount] = useState(3);
-  const [isLoading, setIsLoading] = useState(true);
+  const [columnCount, setColumnCount] = useState<number>(3);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  // Load images on mount
+  /**
+   * Convert caption to URL-friendly slug
+   */
+  const captionToSlug = (caption: string) => {
+    return caption
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  };
+
+  /**
+   * Find image by slug
+   */
+  const findImageBySlug = (slug: string) => {
+    return images.find((img: Image) => captionToSlug(img.caption || img.alt) === slug);
+  };
+
+  // Load images with metadata on mount
   useEffect(() => {
     const loadImages = async () => {
       try {
         setIsLoading(true);
         
-        // Choose your loading method:
-        // Option 1: Dynamic loading (Vite)
-        const imageList: ImageList = loadImagesFromDirectory().filter((image) => image !== null);
+        // Load metadata from JSON
+        const response = await fetch('/frames-metadata.json');
+        const metadata = await response.json();
         
-        // Option 2: From manifest
-        // const imageList = await loadImagesFromManifest();
-        
-        // Option 3: Static list
-        // const imageList = getStaticImages();
+        // Map metadata to image objects with full paths
+        const imageList: Image[] = metadata.images.map((img: Image, index: number) => ({
+          id: index + 1,
+          src: `/images/frames/${img.filename}`,
+          filename: img.filename,
+          caption: img.caption,
+          alt: img.alt,
+          date: img.date,
+          tags: img.tags
+        }));
         
         setImages(imageList);
       } catch (error) {
@@ -48,6 +70,37 @@ const ImageGalleryModular = () => {
 
     loadImages();
   }, []);
+
+  // Handle browser back/forward button
+  useEffect(() => {
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const imageSlug = params.get('image');
+      
+      if (imageSlug) {
+        const image = findImageBySlug(imageSlug);
+        if (image) {
+          setSelectedImage(image);
+        }
+      } else {
+        setSelectedImage(null);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    
+    // Check URL on mount
+    const params = new URLSearchParams(window.location.search);
+    const imageSlug = params.get('image');
+    if (imageSlug && images.length > 0) {
+      const image = findImageBySlug(imageSlug);
+      if (image) {
+        setSelectedImage(image);
+      }
+    }
+
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [images]);
 
   // Responsive column count based on viewport width
   useEffect(() => {
@@ -69,10 +122,19 @@ const ImageGalleryModular = () => {
 
   const handleImageClick = (image: Image) => {
     setSelectedImage(image);
+    
+    // Update URL with image slug
+    const slug = captionToSlug(image.caption || image.alt);
+    const newUrl = `${window.location.pathname}?image=${slug}`;
+    window.history.pushState({ imageSlug: slug }, '', newUrl);
   };
 
   const handleCloseModal = () => {
     setSelectedImage(null);
+    
+    // Remove image parameter from URL
+    const newUrl = window.location.pathname;
+    window.history.pushState({}, '', newUrl);
   };
 
   return (
@@ -124,7 +186,7 @@ const ImageGalleryModular = () => {
               Frames
             </h1>
             <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400 font-light tracking-wide">
-              {isLoading ? 'Loading...' : `${images.length} ${images.length === 1 ? 'image' : 'images'}`} | A small collection of captured moments out of hobby over the years.
+              <b>A small collection of things I’ve built, found, and framed over the years</b> | {isLoading ? 'Loading...' : `${images.length} ${images.length === 1 ? 'frame' : 'frames'}`}
             </p>
           </div>
         </header>
@@ -156,10 +218,10 @@ const ImageGalleryModular = () => {
                 />
               </svg>
               <p className="text-neutral-500 dark:text-neutral-400 text-lg font-light">
-                No images found in /public/frames/
+                No moments to share yet
               </p>
               <p className="text-neutral-400 dark:text-neutral-500 text-sm mt-2">
-                Add your images to get started
+                We'll have some here soon. Stay tuned!
               </p>
             </div>
           ) : (
