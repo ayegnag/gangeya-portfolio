@@ -1,6 +1,48 @@
 {
     "images": [
         {
+            "filename": "IMAGE 2026-02-17 16:55:19.jpg",
+            "caption": "A Velvety Walk.",
+            "alt": "A velvety walk.",
+            "date": "Jun 21, 2024 8:31 am",
+            "tags": ["rosebug", "nature's wonder", "macro", "closeup", "delicate"]
+        },
+        {
+            "filename": "IMAGE 2026-02-17 16:55:22.jpg",
+            "caption": "Winter Preparations.",
+            "alt": "Winter preparations.",
+            "date": "Jun 21, 2024 8:33 am",
+            "tags": ["macro", "ant", "feather"]
+        },
+        {
+            "filename": "IMAGE 2026-02-17 16:55:24.jpg",
+            "caption": "Surmounting the greens.",
+            "alt": "Surmounting the greens.",
+            "date": "July 13, 2024 6:32 pm",
+            "tags": ["macro", "ant", "leaves"]
+        },
+        {
+            "filename": "IMAGE 2026-02-17 16:55:43.jpg",
+            "caption": "Yellow Palace.",
+            "alt": "Yellow Palace.",
+            "date": "May 21, 2025 5:55 am",
+            "tags": ["bloom", "amaltas", "tree", "flowers"]
+        },
+        {
+            "filename": "IMAGE 2026-02-17 16:55:54.jpg",
+            "caption": "Morning love.",
+            "alt": "Morning love.",
+            "date": "Jan 21, 2022 9:00 am",
+            "tags": ["due", "morning", "foggy", "fern"]
+        },
+        {
+            "filename": "IMAGE 2026-02-17 16:55:56.jpg",
+            "caption": "Heavenly beams.",
+            "alt": "Heavenly beams.",
+            "date": "May 28, 2024 6:51 pm",
+            "tags": ["sky", "clouds", "sun-beam"]
+        },
+        {
             "filename": "17841818077026116.jpg",
             "caption": "Sometimes I fall",
             "alt": "Sometimes I fall",
@@ -9,8 +51,8 @@
         },
         {
             "filename": "17842761574026116.jpg",
-            "caption": "Starting a journey",
-            "alt": "Starting a journey",
+            "caption": "Starting a journey.",
+            "alt": "Starting a journey.",
             "date": "Mar 22, 2015 9:38 am",
             "tags": []
         },
@@ -99,6 +141,20 @@
             "tags": ["scenicview", "motorboating", "dam", "serene"]
         },
         {
+            "filename": "IMAGE 2026-02-17 16:55:48.jpg",
+            "caption": "The bringers of joy.",
+            "alt": "The bringers of joy.",
+            "date": "Mar 22, 2015 9:41 am",
+            "tags": ["rainy season", "clouds", "greenery"]
+        },
+        {
+            "filename": "IMAGE 2026-02-17 16:55:51.jpg",
+            "caption": "Beautiful Siblings.",
+            "alt": "Beautiful Siblings.",
+            "date": "Mar 22, 2015 9:41 am",
+            "tags": ["Pattern", "morning", "beautiful", "lilly", "flowers"]
+        },
+        {
             "filename": "18047939629176699.jpg",
             "caption": "A walk to the blissful skies.",
             "alt": "A walk to the blissful skies.",
@@ -167,6 +223,20 @@
             "alt": "Found a Bug in my circuit.",
             "date": "Oct 13, 2018 12:56 pm",
             "tags": ["6leggedfriend", "petproject"]
+        },
+        {
+            "filename": "IMAGE 2026-02-17 16:55:27.jpg",
+            "caption": "It's a plane, it's a bird, it's a moth!",
+            "alt": "It's a plane, it's a bird, it's a moth!",
+            "date": "Aug 5, 2024 3:04 pm",
+            "tags": ["macro", "hummingbirdmoth", "weed", "flowers"]
+        },
+        {
+            "filename": "IMAGE 2026-02-17 16:55:30.jpg",
+            "caption": "Drooping jewels.",
+            "alt": "Drooping jewels.",
+            "date": "May 6, 2025 8:40 am",
+            "tags": ["macro", "fern", "garden", "flowers"]
         },
         {
             "filename": "17842064779026116.jpg",
