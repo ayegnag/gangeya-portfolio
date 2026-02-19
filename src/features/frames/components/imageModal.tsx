@@ -43,7 +43,7 @@ const ImageModal = ({ image, onClose }: ImageModalProps) => {
 
   return (
     <div 
-      className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-300 ${
+      className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ${
         isClosing ? 'opacity-0' : 'opacity-100 animate-fadeIn'
       }`}
       onClick={handleClose}
@@ -54,7 +54,7 @@ const ImageModal = ({ image, onClose }: ImageModalProps) => {
       {/* Close Button */}
       <button
         onClick={handleClose}
-        className="absolute top-4 right-4 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md transition-all duration-300 text-white hover:rotate-90 group"
+        className="absolute top-4 right-4 z-10 w-12 h-12 p-4 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md transition-all duration-300 text-white hover:rotate-90 group"
         aria-label="Close modal"
       >
         <svg 
@@ -74,7 +74,7 @@ const ImageModal = ({ image, onClose }: ImageModalProps) => {
 
       {/* Polaroid Card Container */}
       <div 
-        className={`relative max-w-4xl max-h-[90vh] bg-white p-4 rounded shadow-2xl transition-all duration-300 ${
+        className={`relative max-w-4xl max-h-[90vh] bg-white p-2 rounded shadow-2xl transition-all duration-300 ${
           isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100 animate-scaleIn'
         }`}
         onClick={(e) => e.stopPropagation()}

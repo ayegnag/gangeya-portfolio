@@ -16,7 +16,7 @@ const ImageCard = ({ image, onImageClick }: ImageCardProps) => {
     const animationDelay = useRef(`${Math.random() * 0.3}s`);
     return (
         <div
-            className="mb-4 break-inside-avoid group"
+            className="mb-6 break-inside-avoid group"
             style={{
                 animationName: 'fadeInUp',
                 animationDuration: '0.6s',

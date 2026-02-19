@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ImageCard from './imageCard';
 import ImageModal from './imageModal';
 import { Image, ImageList } from '../types/image';
+import { cn } from '@/lib/utils';
 
 /**
  * ImageGallery Component - Modular Version
@@ -16,131 +17,132 @@ import { Image, ImageList } from '../types/image';
  * - Coordinate between child components
  */
 const ImageGalleryModular = () => {
-  const [selectedImage, setSelectedImage] = useState<Image | null>(null);
-  const [images, setImages] = useState<Image[]>([]);
-  const [columnCount, setColumnCount] = useState<number>(3);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [selectedImage, setSelectedImage] = useState<Image | null>(null);
+    const [images, setImages] = useState<Image[]>([]);
+    const [columnCount, setColumnCount] = useState<number>(3);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  /**
-   * Convert caption to URL-friendly slug
-   */
-  const captionToSlug = (caption: string) => {
-    return caption
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '');
-  };
-
-  /**
-   * Find image by slug
-   */
-  const findImageBySlug = (slug: string) => {
-    return images.find((img: Image) => captionToSlug(img.caption || img.alt) === slug);
-  };
-
-  // Load images with metadata on mount
-  useEffect(() => {
-    const loadImages = async () => {
-      try {
-        setIsLoading(true);
-        
-        // Load metadata from JSON
-        const response = await fetch('/frames-metadata.json');
-        const metadata = await response.json();
-        
-        // Map metadata to image objects with full paths
-        const imageList: Image[] = metadata.images.map((img: Image, index: number) => ({
-          id: index + 1,
-          src: `/images/frames/${img.filename}`,
-          filename: img.filename,
-          caption: img.caption,
-          alt: img.alt,
-          date: img.date,
-          tags: img.tags
-        }));
-        
-        setImages(imageList);
-      } catch (error) {
-        console.error('Failed to load images:', error);
-        setImages([]);
-      } finally {
-        setIsLoading(false);
-      }
+    /**
+     * Convert caption to URL-friendly slug
+     */
+    const captionToSlug = (caption: string) => {
+        return caption
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, '');
     };
 
-    loadImages();
-  }, []);
+    /**
+     * Find image by slug
+     */
+    const findImageBySlug = (slug: string) => {
+        return images.find((img: Image) => captionToSlug(img.caption || img.alt) === slug);
+    };
 
-  // Handle browser back/forward button
-  useEffect(() => {
-    const handlePopState = () => {
-      const params = new URLSearchParams(window.location.search);
-      const imageSlug = params.get('image');
-      
-      if (imageSlug) {
-        const image = findImageBySlug(imageSlug);
-        if (image) {
-          setSelectedImage(image);
+    // Load images with metadata on mount
+    useEffect(() => {
+        const loadImages = async () => {
+            try {
+                setIsLoading(true);
+
+                // Load metadata from JSON
+                const response = await fetch('/frames-metadata.json');
+                const metadata = await response.json();
+
+                // Map metadata to image objects with full paths
+                const imageList: Image[] = metadata.images.map((img: Image, index: number) => ({
+                    id: index + 1,
+                    src: `/images/frames/${img.filename}`,
+                    filename: img.filename,
+                    caption: img.caption,
+                    alt: img.alt,
+                    date: img.date,
+                    tags: img.tags
+                }));
+
+                setImages(imageList);
+            } catch (error) {
+                console.error('Failed to load images:', error);
+                setImages([]);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        loadImages();
+    }, []);
+
+    // Handle browser back/forward button
+    useEffect(() => {
+        const handlePopState = () => {
+            const params = new URLSearchParams(window.location.search);
+            const imageSlug = params.get('image');
+
+            if (imageSlug) {
+                const image = findImageBySlug(imageSlug);
+                if (image) {
+                    setSelectedImage(image);
+                }
+            } else {
+                setSelectedImage(null);
+            }
+        };
+
+        window.addEventListener('popstate', handlePopState);
+
+        // Check URL on mount
+        const params = new URLSearchParams(window.location.search);
+        const imageSlug = params.get('image');
+        if (imageSlug && images.length > 0) {
+            const image = findImageBySlug(imageSlug);
+            if (image) {
+                setSelectedImage(image);
+            }
         }
-      } else {
-        setSelectedImage(null);
-      }
-    };
 
-    window.addEventListener('popstate', handlePopState);
-    
-    // Check URL on mount
-    const params = new URLSearchParams(window.location.search);
-    const imageSlug = params.get('image');
-    if (imageSlug && images.length > 0) {
-      const image = findImageBySlug(imageSlug);
-      if (image) {
+        return () => window.removeEventListener('popstate', handlePopState);
+    }, [images]);
+
+    // Responsive column count based on viewport width
+    useEffect(() => {
+        const handleResize = () => {
+            const width = window.innerWidth;
+            // if (width < 640) {
+            //     setColumnCount(1);  // Mobile: 1 column
+            // } else 
+            if (width < 768) {
+                setColumnCount(2);  // Tablet: 2 columns
+            } else {
+                setColumnCount(3);  // Desktop: 3 columns
+            }
+        };
+
+        handleResize(); // Set initial value
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const handleImageClick = (image: Image) => {
         setSelectedImage(image);
-      }
-    }
 
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, [images]);
-
-  // Responsive column count based on viewport width
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width < 640) {
-        setColumnCount(1);  // Mobile: 1 column
-      } else if (width < 768) {
-        setColumnCount(2);  // Tablet: 2 columns
-      } else {
-        setColumnCount(3);  // Desktop: 3 columns
-      }
+        // Update URL with image slug
+        const slug = captionToSlug(image.caption || image.alt);
+        const newUrl = `${window.location.pathname}?image=${slug}`;
+        window.history.pushState({ imageSlug: slug }, '', newUrl);
     };
 
-    handleResize(); // Set initial value
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    const handleCloseModal = () => {
+        setSelectedImage(null);
 
-  const handleImageClick = (image: Image) => {
-    setSelectedImage(image);
-    
-    // Update URL with image slug
-    const slug = captionToSlug(image.caption || image.alt);
-    const newUrl = `${window.location.pathname}?image=${slug}`;
-    window.history.pushState({ imageSlug: slug }, '', newUrl);
-  };
+        // Remove image parameter from URL
+        const newUrl = window.location.pathname;
+        window.history.pushState({}, '', newUrl);
+    };
 
-  const handleCloseModal = () => {
-    setSelectedImage(null);
-    
-    // Remove image parameter from URL
-    const newUrl = window.location.pathname;
-    window.history.pushState({}, '', newUrl);
-  };
-
-  return (
-    <>
-      {/* Keyframe animations */}
-      <style>{`
+    return (
+        <>
+            {/* Keyframe animations */}
+            <style>{`
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -177,80 +179,83 @@ const ImageGalleryModular = () => {
         }
       `}</style>
 
-      <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-950 transition-colors duration-500">
-        
-        {/* Sticky Header */}
-        <header className="sticky top-0 z-40 backdrop-blur-xl bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-800 transition-colors duration-500">
-          <div className="max-w-[768px] mx-auto px-4 py-6">
-            <h1 className="text-3xl md:text-4xl font-light tracking-tight text-neutral-900 dark:text-white">
-              Frames
-            </h1>
-            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400 font-light tracking-wide">
-              <b>A small collection of things I’ve built, found, and framed over the years</b> | {isLoading ? 'Loading...' : `${images.length} ${images.length === 1 ? 'frame' : 'frames'}`}
-            </p>
-          </div>
-        </header>
+            <div className={cn(
+                "min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-950 transition-colors duration-500",
+                "bg-black/0.75 bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[10px_10px] bg-center [--pattern-foreground:var(--color-zinc-950)]/5 dark:bg-white/0.75 dark:[--pattern-foreground:var(--color-white)]/5"
+                )}>
 
-        {/* Main Gallery Container */}
-        <main className="max-w-[768px] mx-auto px-4 py-8">
-          {isLoading ? (
-            // Loading state
-            <div className="flex flex-col items-center justify-center py-20">
-              <div className="w-12 h-12 border-4 border-neutral-200 dark:border-neutral-700 border-t-neutral-600 dark:border-t-neutral-300 rounded-full animate-spin"></div>
-              <p className="mt-4 text-neutral-500 dark:text-neutral-400 text-sm">
-                Loading images...
-              </p>
-            </div>
-          ) : images.length === 0 ? (
-            // Empty state
-            <div className="text-center py-20">
-              <svg 
-                className="w-16 h-16 mx-auto text-neutral-300 dark:text-neutral-700 mb-4" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={1.5} 
-                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" 
-                />
-              </svg>
-              <p className="text-neutral-500 dark:text-neutral-400 text-lg font-light">
-                No moments to share yet
-              </p>
-              <p className="text-neutral-400 dark:text-neutral-500 text-sm mt-2">
-                We'll have some here soon. Stay tuned!
-              </p>
-            </div>
-          ) : (
-            // Masonry grid layout
-            <div 
-              className="columns-1 sm:columns-2 md:columns-3 gap-4"
-              style={{ columnCount }}
-            >
-              {images.map((image) => (
-                <ImageCard
-                  key={image.id}
-                  image={image}
-                  onImageClick={handleImageClick}
-                />
-              ))}
-            </div>
-          )}
-        </main>
+                {/* Sticky Header */}
+                <header className="sticky top-0 z-40 backdrop-blur-xl bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-800 transition-colors duration-500">
+                    <div className="max-w-[768px] mx-auto px-4 py-6">
+                        <h1 className="text-3xl md:text-4xl font-light tracking-tight text-neutral-900 dark:text-white">
+                            Frames
+                        </h1>
+                        <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400 font-light tracking-wide">
+                            <b>A small collection of things I’ve built, found, and framed over the years</b> | {isLoading ? 'Loading...' : `${images.length} ${images.length === 1 ? 'frame' : 'frames'}`}
+                        </p>
+                    </div>
+                </header>
 
-        {/* Modal for full-size image view */}
-        {selectedImage && (
-          <ImageModal 
-            image={selectedImage} 
-            onClose={handleCloseModal} 
-          />
-        )}
-      </div>
-    </>
-  );
+                {/* Main Gallery Container */}
+                <main className={cn("max-w-[768px] mx-auto px-4 py-8")}>
+                    {isLoading ? (
+                        // Loading state
+                        <div className="flex flex-col items-center justify-center py-20">
+                            <div className="w-12 h-12 border-4 border-neutral-200 dark:border-neutral-700 border-t-neutral-600 dark:border-t-neutral-300 rounded-full animate-spin"></div>
+                            <p className="mt-4 text-neutral-500 dark:text-neutral-400 text-sm">
+                                Loading images...
+                            </p>
+                        </div>
+                    ) : images.length === 0 ? (
+                        // Empty state
+                        <div className="text-center py-20">
+                            <svg
+                                className="w-16 h-16 mx-auto text-neutral-300 dark:text-neutral-700 mb-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={1.5}
+                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                />
+                            </svg>
+                            <p className="text-neutral-500 dark:text-neutral-400 text-lg font-light">
+                                No moments to share yet
+                            </p>
+                            <p className="text-neutral-400 dark:text-neutral-500 text-sm mt-2">
+                                We'll have some here soon. Stay tuned!
+                            </p>
+                        </div>
+                    ) : (
+                        // Masonry grid layout
+                        <div
+                            className="columns-1 sm:columns-2 md:columns-3 gap-6"
+                            style={{ columnCount }}
+                        >
+                            {images.map((image) => (
+                                <ImageCard
+                                    key={image.id}
+                                    image={image}
+                                    onImageClick={handleImageClick}
+                                />
+                            ))}
+                        </div>
+                    )}
+                </main>
+
+                {/* Modal for full-size image view */}
+                {selectedImage && (
+                    <ImageModal
+                        image={selectedImage}
+                        onClose={handleCloseModal}
+                    />
+                )}
+            </div>
+        </>
+    );
 };
 
 export default ImageGalleryModular;
