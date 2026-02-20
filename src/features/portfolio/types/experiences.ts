@@ -5,6 +5,12 @@ export type ExperiencePositionIcon =
 export type ExperiencePosition = {
   id: string;
   title: string;
+  /** From where work was done */
+  location?: {
+    city: string;
+    country: string;
+    status?: "Remote" | "On-site";
+  }[];
   /**
    * Employment period of the position.
    * Use "MM.YYYY" or "YYYY" format. Omit `end` for current roles.

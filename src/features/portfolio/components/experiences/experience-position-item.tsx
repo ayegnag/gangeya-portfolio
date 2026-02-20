@@ -22,6 +22,7 @@ export function ExperiencePositionItem({
   position: ExperiencePosition;
 }) {
   const { start, end } = position.employmentPeriod;
+  const location = position.location ? position.location.map(loc => `${loc.city}, ${loc.country} (${loc.status})`).join(" | ") : null;
   const isOngoing = !end;
 
   return (
@@ -90,6 +91,22 @@ export function ExperiencePositionItem({
                 )}
               </dd>
             </dl>
+
+            {position.location && (
+              <>
+                <Separator
+                  className="data-[orientation=vertical]:h-4"
+                  orientation="vertical"
+                />
+                <dl>
+                  <dt className="sr-only">Location</dt>
+                  <dd className="flex items-center gap-0.5">
+                    <span>{location}</span>
+                  </dd>
+                </dl>
+              </>
+            )}
+
           </div>
         </CollapsibleTrigger>
 

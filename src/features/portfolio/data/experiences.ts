@@ -10,6 +10,13 @@ export const EXPERIENCES: Experience[] = [
       {
         id: "techlead-001",
         title: "Technical Lead",
+        location: [
+          {
+            city: "Jaipur",
+            country: "India",
+            status: "Remote",
+          }
+        ],
         employmentPeriod: {
           start: "04.2021",
           end: "Present",
@@ -43,9 +50,16 @@ export const EXPERIENCES: Experience[] = [
       {
         id: "fullstack-001",
         title: "Full Stack Developer",
+        location: [
+          {
+            city: "Bangalore",
+            country: "India",
+            status: "On-site",
+          }
+        ],
         employmentPeriod: {
           start: "06.2018",
-          end: "Present",
+          end: "03.2021",
         },
         employmentType: "Full-time",
         icon: "code",
@@ -72,6 +86,13 @@ export const EXPERIENCES: Experience[] = [
       {
         id: "frontend-001",
         title: "Front-End Engineer",
+        location: [
+          {
+            city: "Bangalore",
+            country: "India",
+            status: "On-site",
+          }
+        ],
         employmentPeriod: {
           start: "04.2018",
           end: "07.2018",
@@ -101,6 +122,17 @@ export const EXPERIENCES: Experience[] = [
       {
         id: "founder-001",
         title: "Co-Founder",
+        location: [
+          {
+            city: "Hyderabad",
+            country: "India",
+            status: "On-site",
+          }, {
+            city: "Gurgaon",
+            country: "India",
+            status: "On-site",
+          }
+        ],
         employmentPeriod: {
           start: "2017",
           end: "2018",
@@ -129,6 +161,13 @@ export const EXPERIENCES: Experience[] = [
       {
         id: "webapp-001",
         title: "Web Application Developer",
+        location: [
+          {
+            city: "Hyderabad",
+            country: "India",
+            status: "On-site",
+          }
+        ],
         employmentPeriod: {
           start: "2013",
           end: "2017",
@@ -180,6 +219,7 @@ export const EXPERIENCES: Experience[] = [
         title: "Embedded Software Developer",
         employmentPeriod: {
           start: "2013",
+          end: "2015",
         },
         employmentType: "Full-time",
         icon: "hardware",
