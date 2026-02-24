@@ -13,6 +13,7 @@ import { AppProviders } from '@/components/providers'
 import { SiteHeader } from '@/components/site-header'
 // import { Analytics } from '@vercel/analytics/react'
 import { SiteFooter } from '@/components/site-footer';
+import '@/components/console-easter';
 
 // import { USER } from "@/features/portfolio/data/user";
 // import { WebSite, WithContext } from 'schema-dts';
