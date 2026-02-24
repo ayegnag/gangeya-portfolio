@@ -35,11 +35,11 @@ export const USER: User = {
   
   //   `,
   about:`
-  - **Senior Full-Stack Engineer with 12+ years** of experience building **scalable web, backend, and cloud platforms** for enterprise and product teams.
-  - Strong command of **Node.js, TypeScript, Angular/React, AWS, Azure, and system design**, delivering reliable and maintainable production systems.
-  - Recognized for **design-led engineering**, combining backend rigor with **refined UI/UX execution** to build user-centric applications.
-  - Proven ability to operate in **remote-first, distributed teams**, driving clarity, technical direction, and high-quality delivery across stakeholders.
-  - Focused on **architecture, performance, and developer experience**, ensuring systems remain efficient, observable, and adaptable at scale.
+- **Senior Full-Stack Engineer building scalable platforms and AI-powered systems with 12+ years of experience**, delivering modern web, backend, and cloud solutions for enterprise and product teams.
+- Strong command of **Node.js, TypeScript, Angular/React, AWS, Azure, and system design**, with hands-on experience integrating **LLM-driven features and AI-enhanced workflows** into production systems.
+- Recognized for **design-led engineering**, combining backend rigor with refined UI/UX execution to craft **AI-driven product experiences** that are intuitive, responsive, and user-centric.
+- Proven ability to operate in **remote-first, distributed teams**, leading architecture discussions and embedding intelligent automation and AI capabilities into evolving product ecosystems.
+- Focused on **scalable architecture, performance, observability, and developer experience**, ensuring platforms remain resilient, adaptable, and ready to incorporate emerging AI capabilities.
    `,
 
   // avatar: "/images/profilePic_painted.jpg",
