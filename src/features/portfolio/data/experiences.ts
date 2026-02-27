@@ -23,13 +23,24 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Full-time",
         icon: "code",
-        description: `- Lead architecture and delivery of enterprise-scale platforms across distributed teams.
-- Spearhead modernization of core backend services, improving reliability and long-term maintainability.
-- Oversee system design reviews, coding standards, deployment strategy, and CI/CD adoption.
-- Coordinate cross-functional development with product, UX, and business stakeholders in remote-first settings.
-- Improve API performance and data integrity through asynchronous patterns, caching, DB indexing, and access optimization.
-- Mentor engineers, establish technical direction, and support onboarding across global engineering footprint.
-- Drive engineering accountability and delivery predictability through documentation, planning, and stable release cadence.`,
+//         description: `- Lead architecture and delivery of enterprise-scale platforms across distributed teams.
+// - Spearhead modernization of core backend services, improving reliability and long-term maintainability.
+// - Oversee system design reviews, coding standards, deployment strategy, and CI/CD adoption.
+// - Coordinate cross-functional development with product, UX, and business stakeholders in remote-first settings.
+// - Improve API performance and data integrity through asynchronous patterns, caching, DB indexing, and access optimization.
+// - Mentor engineers, establish technical direction, and support onboarding across global engineering footprint.
+// - Drive engineering accountability and delivery predictability through documentation, planning, and stable release cadence.`,
+        description: `- Led architecture and delivery of a utility service portal serving 10–16K daily visits and 1M+ customer records across multiple US states, supporting residential and large commercial billing workflows.
+- Drove end-to-end modernisation initiatives including Angular 5 → 10 migration, Azure AD B2C UI refactor from monolithic jQuery to MVC + TypeScript, and re-architecture of a legacy notification settings page into a modular Angular SPA - designed to serve 3 sub-companies from a single codebase with smart data handling.
+- Improved Google Lighthouse performance scores from 75 to 98–99 on a brownfield application through targeted rendering, asset, and interaction optimisations.
+- Reduced a critical registration endpoint response time from 30s to 10s by refactoring database queries and introducing async queues for parallel downstream service calls.
+- Identified and resolved vulnerabilities on anonymous and authenticated endpoints - proposed and implemented endpoint behaviour changes that were adopted over SecOps recommendations.
+- Oversaw system design reviews, coding standards, deployment strategy, and CI/CD adoption across teams - maintaining technical direction without becoming a bottleneck to delivery.
+- Coordinated cross-functional delivery across client-side stakeholders, in-house consulting teams, and peer sub-project teams within a large enterprise ecosystem, operating in fully remote-first settings.
+- Mentored engineers across seniority levels, supported onboarding across a global engineering footprint, and established team-wide practices for documentation, backlog readiness, and release stability.
+- Engaged directly with product and UX on design decisions - pushed back where proposed UI directions conflicted with technical feasibility, data constraints, or user flow logic, and drove alignment through rationale rather than hierarchy.
+- Drove engineering accountability through planning rigour, stable release cadence, and clear communication of technical tradeoffs to non-technical stakeholders.
+        `,
         skills: [
           "Node.js",
           "TypeScript",
@@ -73,6 +84,8 @@ export const EXPERIENCES: Experience[] = [
 - Collaborate asynchronously with fully remote teams, ensuring clarity of handoff, backlog readiness, and delivery timelines.`,
         skills: [
           "Node.js",
+          "React.js",
+          "Angular",
           "Vue.js",
           "JavaScript",
           "TypeScript",
@@ -110,7 +123,7 @@ export const EXPERIENCES: Experience[] = [
 - Built UI components using modern templating and state management approaches.
 - Improved client-side rendering and asset loading to boost first meaningful paint and interaction responsiveness.`,
         skills: [
-          "Vue.js",
+          "React.js",
           "HTML5",
           "CSS3",
           "Responsive Layout",
@@ -190,12 +203,18 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Full-time",
         icon: "code",
-        description: `- Built and maintained full-stack modules using Node.js, HTML5, and UI-first development priorities.
-- Implemented real-time logic for data-driven interfaces backed by efficient server execution paths.
-- Delivered layout, navigation, and content experience improvements with UX parity for web and mobile devices.`,
+//         description: `- Built and maintained full-stack modules using Node.js, HTML5, and UI-first development priorities.
+// - Implemented real-time logic for data-driven interfaces backed by efficient server execution paths.
+// - Delivered layout, navigation, and content experience improvements with UX parity for web and mobile devices.`,
+        description: `- Delivered frontend modules aligned with evolving business requirements and user experience priorities.
+- Built UI components using modern templating and state management approaches.
+- Improved client-side rendering and asset loading to reduce first meaningful paint and boost interaction responsiveness.`,
         skills: [
           "Node.js",
           "HTML5",
+          "Real-time Data",
+          "REST APIs",
+          "MySQL",
           "JavaScript",
           "UX Implementation",
           "Responsive Design",
@@ -211,9 +230,15 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Full-time",
         icon: "code",
-        description: `- Designed UI layouts and data-driven flows for enterprise applications.
-- Integrated multi-source backend services and ensured client stability and data coherence.
-- Maintained product availability, scale, and onboarding efficiency through iterative release practices.`,
+//         description: `- Designed UI layouts and data-driven flows for enterprise applications.
+// - Integrated multi-source backend services and ensured client stability and data coherence.
+// - Maintained product availability, scale, and onboarding efficiency through iterative release practices.`,
+        description: `- Sole frontend engineer responsible for the complete IoT device management dashboard on a smart home Wi-Fi router - including a visual rules engine (if-this-then-that style logic builder) accessible via local admin configuration.
+- Designed and built real-time data-driven interfaces backed by efficient server execution, delivering UX parity across web and mobile for consumers in the USA, UK, France, and Germany.
+- Operated with full autonomy across the product - went beyond the frontend brief to collaborate with firmware, backend, cloud, and design teams, using cross-functional insight to make better UX decisions than would have been possible in a siloed role.
+- Engaged directly with design and product on UI decisions - questioned assumptions, proposed alternatives grounded in technical and user flow understanding, and contributed to a product that shipped quarterly updates to international markets.
+- Integrated multi-source backend services, maintained data coherence across enterprise application layers, and supported product availability through iterative release practices.
+        `,
         skills: [
           "Systems Integration",
           "UI Layouts",
@@ -239,6 +264,8 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Full-time",
         icon: "hardware",
+//         description: `- Developed embedded firmware for device-level LCD interfaces and operational logic.
+// - Assisted in field diagnostics, firmware stability improvements, and unit-level test protocols.`,
         description: `- Developed embedded firmware for device-level LCD interfaces and operational logic.
 - Assisted in field diagnostics, firmware stability improvements, and unit-level test protocols.`,
         skills: [
