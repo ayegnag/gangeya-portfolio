@@ -18,6 +18,7 @@ import { Projects } from '@/features/portfolio/components/projects';
 import { TeckStack } from '@/features/portfolio/components/teck-stack';
 import { SocialLinks } from '@/features/portfolio/components/social-links';
 import { Analytics } from "@vercel/analytics/react";
+import { Education } from '@/features/portfolio/components/education';
 
 export const Route = createFileRoute('/')({
   staticData: {
@@ -82,8 +83,8 @@ function App() {
         <Separator /> */}
 
         {/* <Brand /> */}
+        <Education />
         <Separator />
-        
       </div>
     </>
   )

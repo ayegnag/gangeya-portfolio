@@ -139,15 +139,24 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Full-time",
         icon: "idea",
-        description: `- Co-built a digital B2B 3D-printing service platform with ordering, pricing, and post-processing workflows.
-- Managed product development timelines, customer relationships, and vendor integration.
-- Established operational feedback loops to validate material, tolerance, and post-finishing iterations.`,
+        description: `- Designed and built the entire customer-facing platform solo from scratch - an end-to-end ordering system where customers could upload STL files, preview 3D models in the browser with material visualization, configure post-processing options, and check out.
+- Implemented real-time 3D model rendering using Three.js - first time working in 3D space - navigating coordinate systems, point scaling, and material shading from scratch without prior experience in WebGL/3D rendering pipelines.
+- Built backend file handling, order tracking, and automated customer communication on Node.js, making deliberate technology choices (Node + jQuery) to maximize shipping speed over architectural elegance - launched in under 8 months.
+- Operated in a zero-salary, high-pressure environment for 6+ months, shipping a production system while learning that time-to-field matters more than stack cleanliness - a principle that still informs technical decision-making.
+- Secured and delivered B2B contracts, including a precision helical connector piece iterated across 7 prototypes in 2 weeks for a manufacturing client - a turnaround conventionally impossible without costly tooling changes.`,
+//         description: `- Co-built a digital B2B 3D-printing service platform with ordering, pricing, and post-processing workflows.
+// - Managed product development timelines, customer relationships, and vendor integration.
+// - Established operational feedback loops to validate material, tolerance, and post-finishing iterations.`,
         skills: [
-          "Business Strategy",
-          "Operations",
-          "Vendor Coordination",
-          "Field Testing",
-          "Customer Success",
+          "End-to-End Product Build",
+          "Full-Stack Architecture",
+          "3D Printing | Rapid Prototyping",
+          "3D Model Rendering",
+          "STL File Handling",
+          "B2B",
+          "jQuery",
+          "Three.js",
+          "Node.js",
         ],
         isExpanded: true
       },
