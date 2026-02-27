@@ -2,6 +2,12 @@
   "buildCommand": "pnpm build",
   "devCommand": "pnpm dev",
   "outputDirectory": "dist/client",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/:path*.html",
@@ -20,15 +26,6 @@
           "value": "no-cache, no-store, must-revalidate"
         }
       ]
-    }
-  ],
-  "routes": [
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
     }
   ]
 }
