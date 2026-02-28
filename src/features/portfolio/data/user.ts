@@ -46,7 +46,7 @@ export const USER: User = {
   avatar: "/images/profilePic_photo.png",
   ogImage:
     "https://assets.chanhdai.com/images/screenshot-og-image-light.png?t=1764345394",
-  namePronunciationUrl: "/audio/gangeya_name.mp3",
+  namePronunciationUrl: "/audio/gangeya_name_hindi.mp3",
   timeZone: "Asia/Kolkata",
   keywords: [
     "Gangeya",
