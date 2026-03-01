@@ -33,6 +33,9 @@ The backend choice was straightforward: Node.js. Same language end to end, quick
 
 The goal was simple: ship an end-to-end MVP before my savings hit zero.
 
+![Salvaged screenshot of material selection screen during testing phase](/images/blog/realprint-material-test-screenshot.jpg)
+*Salvaged screenshot of material selection screen during testing phase*
+
 ---
 
 ### What held up - and what broke
