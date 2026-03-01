@@ -34,12 +34,13 @@ export const EXPERIENCES: Experience[] = [
 - Drove end-to-end modernisation initiatives including Angular 5 → 10 migration, Azure AD B2C UI refactor from monolithic jQuery to MVC + TypeScript, and re-architecture of a legacy notification settings page into a modular Angular SPA - designed to serve 3 sub-companies from a single codebase with smart data handling.
 - Improved Google Lighthouse performance scores from 75 to 98–99 on a brownfield application through targeted rendering, asset, and interaction optimisations.
 - Reduced a critical registration endpoint response time from 30s to 10s by refactoring database queries and introducing async queues for parallel downstream service calls.
-- Identified and resolved vulnerabilities on anonymous and authenticated endpoints - proposed and implemented endpoint behaviour changes that were adopted over SecOps recommendations.
+- Identified and resolved security vulnerabilities on anonymous and authenticated endpoints during active development - proposed and implemented fixes that were adopted over the SecOps team's own recommendations after review.
 - Oversaw system design reviews, coding standards, deployment strategy, and CI/CD adoption across teams - maintaining technical direction without becoming a bottleneck to delivery.
-- Coordinated cross-functional delivery across client-side stakeholders, in-house consulting teams, and peer sub-project teams within a large enterprise ecosystem, operating in fully remote-first settings.
-- Mentored engineers across seniority levels, supported onboarding across a global engineering footprint, and established team-wide practices for documentation, backlog readiness, and release stability.
-- Engaged directly with product and UX on design decisions - pushed back where proposed UI directions conflicted with technical feasibility, data constraints, or user flow logic, and drove alignment through rationale rather than hierarchy.
+- Drove cross-functional delivery across 15+ stakeholders - developers, QA, UX, analytics, product, and business leads - in a fully remote enterprise engagement; sole technical decision-maker day-to-day with architect engaged for approvals only.
+- Mentored and managed teams of 3–5 junior engineers across enterprise projects - maintained near-zero production defect record across bi-monthly release cadences through code standards, CI/CD adoption, and rigorous handoff documentation.
+- Challenged design proposals before development - flagged a UX decision that was overruled at demo stage by business leadership three months later, validating early pushback as a standard practice.
 - Drove engineering accountability through planning rigour, stable release cadence, and clear communication of technical tradeoffs to non-technical stakeholders.
+- Built internal tooling to reduce team friction - including a QA test utility that eliminated 25-minute manual timeout waits, environment-switching scripts for dev and test teams, and an authentication configuration visualiser.
         `,
         skills: [
           "Node.js",
