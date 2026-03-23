@@ -2,6 +2,67 @@ import type { Project } from "../types/projects";
 
 export const PROJECTS: Project[] = [
     {
+        id: "knowrag_ai",
+        title: "Knowrag - personal chatbot",
+        period: {
+            start: "12.2025",
+            // end: "03.2026"
+        },
+        link: "https://github.com/ayegnag/knowrag",
+        skills: [
+            "React",
+            "TypeScript",
+            "Node.js",
+            "Express",
+            "Ollama",
+            "Qdrant",
+            "RAG",
+            "Hybrid Search",
+            "Local LLM",
+            "Tailwind",
+            "shadcn/ui",
+            "Vite",
+            "SSE Streaming",
+            "File Upload"
+        ],
+        description: `A privacy-first, local RAG chatbot that lets users naturally query their personal knowledge base (Obsidian vaults, notes, documents, PDFs).
+- Modern, responsive React + Vite frontend with dark mode, streaming replies, sidebar chat switching and file ingestion UI
+- Hybrid retrieval (dense embeddings + BM25 keyword search + RRF fusion) powered by Qdrant vector database
+- Fully local LLM & embedding inference via Ollama (no cloud dependency)
+- Built-in multi-stage security pipeline (regex + lightweight classification)
+- Designed for modularity: backend (Node.js/Express), vector store (Qdrant), LLM (Ollama), frontend (React) — easy to extend or self-host`,
+        logo: "/images/project-logos/knowrag.svg",
+        isExpanded: true
+    },
+
+    {
+        id: "vyay",
+        title: "Vyay - Private Expense Manager",
+        period: {
+            start: "08.2024",
+        },
+        link: "https://github.com/ayegnag/vyay",
+        skills: [
+            "Kotlin",
+            "Android",
+            "Jetpack",
+            "Room",
+            "Coroutines",
+            "Transactions Parsing",
+            "Privacy-first Design",
+            "Local-first Storage",
+            "UI/UX"
+        ],
+        description: `Vyay (Sanskrit: "expense") is a privacy-first expense management Android app built for modern phones. No data leaves the device - all analysis and summaries are computed locally. Vyay parses transaction SMS/notifications to extract amounts, dates, and merchant info, while also supporting manual entries, custom categorization, and insightful spending summaries.
+- 🔒 Privacy-first: all processing & storage remain on the user's phone
+- 🔍 SMS transaction parsing with robust pattern matching and categorization
+- 📈 Local summaries and reports, with manual edit and tagging support
+- ⚡ Kotlin + modern Android architecture (coroutines, Room, Jetpack components)`,
+        logo: "/images/project-logos/vyay.png",
+        isExpanded: true
+    },
+
+    {
         id: "go_game",
         title: "Go - Real-Time Multiplayer",
         period: {
@@ -50,33 +111,6 @@ export const PROJECTS: Project[] = [
 - ⚙️ Built for extensibility - supports loading base/extension policies and recursive resolution`,
         logo: "/images/project-logos/b2cvisualizer.svg",
         isExpanded: false
-    },
-
-    {
-        id: "vyay",
-        title: "Vyay - Private Expense Manager",
-        period: {
-            start: "08.2024",
-        },
-        link: "https://github.com/ayegnag/vyay",
-        skills: [
-            "Kotlin",
-            "Android",
-            "Jetpack",
-            "Room",
-            "Coroutines",
-            "Transactions Parsing",
-            "Privacy-first Design",
-            "Local-first Storage",
-            "UI/UX"
-        ],
-        description: `Vyay (Sanskrit: "expense") is a privacy-first expense management Android app built for modern phones. No data leaves the device - all analysis and summaries are computed locally. Vyay parses transaction SMS/notifications to extract amounts, dates, and merchant info, while also supporting manual entries, custom categorization, and insightful spending summaries.
-- 🔒 Privacy-first: all processing & storage remain on the user's phone
-- 🔍 SMS transaction parsing with robust pattern matching and categorization
-- 📈 Local summaries and reports, with manual edit and tagging support
-- ⚡ Kotlin + modern Android architecture (coroutines, Room, Jetpack components)`,
-        logo: "/images/project-logos/vyay.png",
-        isExpanded: true
     },
 
     {
