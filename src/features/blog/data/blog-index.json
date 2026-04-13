@@ -103,5 +103,20 @@
       "words": 506,
       "images": 1
     }
+  },
+  {
+    "slug": "self-healing-code",
+    "metadata": {
+      "title": "What If Code Could Heal Itself",
+      "description": "A thought experiment on software architecture that allows for self-healing and adaptation.",
+      "image": "/images/blog/self-healing-code.png",
+      "createdAt": "2026-04-06T12:10:00.000Z",
+      "updatedAt": "2026-04-06T12:10:00.000Z"
+    },
+    "readingTime": {
+      "minutes": 5,
+      "words": 1237,
+      "images": 0
+    }
   }
 ]
