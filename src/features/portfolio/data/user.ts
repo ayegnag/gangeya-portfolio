@@ -18,7 +18,7 @@ export const USER: User = {
   address: "Jaipur, Rajasthan, India",
   phoneNumber: "KzkxIDkwMDA3IDg1MTUz", // E.164 format, base64 encoded
   email: "Z2FuZ2V5YS51QGdtYWlsLmNvbQ==", // base64 encoded
-  website: "https://gangeya.com",
+  website: "https://gangeya.dev",
   jobTitle: "Specialist Senior",
   jobs: [
     {

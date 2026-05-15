@@ -3,7 +3,7 @@ import type { NavItem } from "@/types/nav";
 
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.APP_URL || "https://gangeya.com",
+  url: process.env.APP_URL || "https://gangeya.dev",
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,
@@ -72,7 +72,7 @@ export const SOURCE_CODE_GITHUB_URL = "https://github.com/ayegnag/gangeya-portfo
 export const SPONSORSHIP_URL = "";
 
 export const UTM_PARAMS = {
-  utm_source: "gangeya.com",
+  utm_source: "gangeya.dev",
   utm_medium: "referral",
   utm_campaign: "portfolio",
 };
