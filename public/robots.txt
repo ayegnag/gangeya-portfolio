@@ -1,3 +1,40 @@
 # https://www.robotstxt.org/robotstxt.html
+
+# Default: allow everyone
 User-agent: *
 Disallow:
+
+# --- Anthropic (Claude) ---
+# User-agent: ClaudeBot
+# Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# --- OpenAI (ChatGPT) ---
+# User-agent: GPTBot
+# Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# --- xAI (Grok) ---
+User-agent: Grok
+Allow: /
+
+User-agent: GrokBot
+Allow: /
+
+User-agent: xAI-Grok
+Allow: /
+
+User-agent: Grok-DeepSearch
+Allow: /
+
+# Sitemap: https://gangeya.dev/sitemap.xml

@@ -1,5 +1,20 @@
 [
   {
+    "slug": "self-healing-code",
+    "metadata": {
+      "title": "What If Code Could Heal Itself? (A More Realistic View)",
+      "description": "A deep dive into self-healing architecture—and where it hits the wall of technical debt and security complexity.",
+      "image": "/images/blog/self-healing-code.png",
+      "createdAt": "2026-04-06T00:00:00.000Z",
+      "updatedAt": "2026-04-06T00:00:00.000Z"
+    },
+    "readingTime": {
+      "minutes": 6,
+      "words": 1248,
+      "images": 1
+    }
+  },
+  {
     "slug": "understanding_personal_taste",
     "metadata": {
       "title": "Understanding Personal Taste as a Core Differentiator",
@@ -102,21 +117,6 @@
       "minutes": 4,
       "words": 506,
       "images": 1
-    }
-  },
-  {
-    "slug": "self-healing-code",
-    "metadata": {
-      "title": "What If Code Could Heal Itself",
-      "description": "A thought experiment on software architecture that allows for self-healing and adaptation.",
-      "image": "/images/blog/self-healing-code.png",
-      "createdAt": "2026-04-06T12:10:00.000Z",
-      "updatedAt": "2026-04-06T12:10:00.000Z"
-    },
-    "readingTime": {
-      "minutes": 5,
-      "words": 1237,
-      "images": 0
     }
   }
 ]
