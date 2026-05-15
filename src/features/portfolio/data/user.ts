@@ -22,9 +22,10 @@ export const USER: User = {
   jobTitle: "Specialist Senior",
   jobs: [
     {
-      title: "Specialist Senior and Tech Lead",
-      company: "Deloitte",
-      website: "https://www.deloittedigital.com/us/en.html",
+      title: "Founder",
+      // title: "Specialist Senior and Tech Lead",
+      company: "Sva Studio",
+      website: "https://www.sva-studio.com",
     },
     // {
     //   title: "Founder",

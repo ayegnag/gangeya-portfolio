@@ -2,6 +2,44 @@ import type { Experience } from "../types/experiences";
 
 export const EXPERIENCES: Experience[] = [
   {
+    id: "webtools",
+    companyName: "Sva Studio",
+    companyLogo: "/images/companies/svastudio",
+    positions: [
+      {
+        id: "founder-002",
+        title: "Founder",
+        location: [
+          {
+            city: "Jaipur",
+            country: "India",
+            status: "On-site",
+          }
+        ],
+        employmentPeriod: {
+          start: "2026",
+          end: "Present",
+        },
+        employmentType: "Full-time",
+        icon: "idea",
+        description: `- Founded Sva Studio as a solo indie software label with a deliberate commercial stance: honest pricing, no third-party data sharing, free updates. Every architectural and business decision made against this constraint rather than defaulting to the subscription-and-analytics playbook common in the space.
+- Designed and built OnCrest from scratch: a Chrome extension with a layered behavioral intervention system, local pattern detection across named distraction states (doom scroll, tab thrash, autopilot landing, binge loop), and an anti-desensitization engine that rotates interventions to prevent habituation. First time building a browser extension; learned Chrome's extension APIs, content script isolation, service worker persistence, and Manifest V3 constraints under production conditions. Currently in Closed Beta.`,
+        skills: [
+          "End-to-End Product Build",
+          "Full-Stack Architecture",
+          "Manifest V3",
+          "Product Architecture",
+          "System Design",
+          "Copywriting",
+          "Business Model Design",
+          "Node.js",
+        ],
+        isExpanded: true
+      },
+    ],
+    isCurrentEmployer: true,
+  },
+  {
     id: "consulting",
     companyName: "Deloitte Digital",
     companyLogo: "/images/companies/deloitte",
@@ -19,17 +57,17 @@ export const EXPERIENCES: Experience[] = [
         ],
         employmentPeriod: {
           start: "04.2021",
-          end: "Present",
+          end: "12.2025",
         },
         employmentType: "Full-time",
         icon: "code",
-//         description: `- Lead architecture and delivery of enterprise-scale platforms across distributed teams.
-// - Spearhead modernization of core backend services, improving reliability and long-term maintainability.
-// - Oversee system design reviews, coding standards, deployment strategy, and CI/CD adoption.
-// - Coordinate cross-functional development with product, UX, and business stakeholders in remote-first settings.
-// - Improve API performance and data integrity through asynchronous patterns, caching, DB indexing, and access optimization.
-// - Mentor engineers, establish technical direction, and support onboarding across global engineering footprint.
-// - Drive engineering accountability and delivery predictability through documentation, planning, and stable release cadence.`,
+        //         description: `- Lead architecture and delivery of enterprise-scale platforms across distributed teams.
+        // - Spearhead modernization of core backend services, improving reliability and long-term maintainability.
+        // - Oversee system design reviews, coding standards, deployment strategy, and CI/CD adoption.
+        // - Coordinate cross-functional development with product, UX, and business stakeholders in remote-first settings.
+        // - Improve API performance and data integrity through asynchronous patterns, caching, DB indexing, and access optimization.
+        // - Mentor engineers, establish technical direction, and support onboarding across global engineering footprint.
+        // - Drive engineering accountability and delivery predictability through documentation, planning, and stable release cadence.`,
         description: `- Led architecture and delivery of a utility service portal serving 10–16K daily visits and 1M+ customer records across multiple US states, supporting residential and large commercial billing workflows.
 - Drove end-to-end modernisation initiatives including Angular 5 → 10 migration, Azure AD B2C UI refactor from monolithic jQuery to MVC + TypeScript, and re-architecture of a legacy notification settings page into a modular Angular SPA - designed to serve 3 sub-companies from a single codebase with smart data handling.
 - Improved Google Lighthouse performance scores from 75 to 98–99 on a brownfield application through targeted rendering, asset, and interaction optimisations.
@@ -133,7 +171,7 @@ export const EXPERIENCES: Experience[] = [
         isExpanded: true
       },
     ],
-    isCurrentEmployer: true,
+    isCurrentEmployer: false,
   },
   {
     id: "3dprint",
@@ -165,9 +203,9 @@ export const EXPERIENCES: Experience[] = [
 - Built backend file handling, order tracking, and automated customer communication on Node.js, making deliberate technology choices (Node + jQuery) to maximize shipping speed over architectural elegance - launched in under 8 months.
 - Operated in a zero-salary, high-pressure environment for 6+ months, shipping a production system while learning that time-to-field matters more than stack cleanliness - a principle that still informs technical decision-making.
 - Secured and delivered B2B contracts, including a precision helical connector piece iterated across 7 prototypes in 2 weeks for a manufacturing client - a turnaround conventionally impossible without costly tooling changes.`,
-//         description: `- Co-built a digital B2B 3D-printing service platform with ordering, pricing, and post-processing workflows.
-// - Managed product development timelines, customer relationships, and vendor integration.
-// - Established operational feedback loops to validate material, tolerance, and post-finishing iterations.`,
+        //         description: `- Co-built a digital B2B 3D-printing service platform with ordering, pricing, and post-processing workflows.
+        // - Managed product development timelines, customer relationships, and vendor integration.
+        // - Established operational feedback loops to validate material, tolerance, and post-finishing iterations.`,
         skills: [
           "End-to-End Product Build",
           "Full-Stack Architecture",
@@ -204,9 +242,9 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Full-time",
         icon: "code",
-//         description: `- Built and maintained full-stack modules using Node.js, HTML5, and UI-first development priorities.
-// - Implemented real-time logic for data-driven interfaces backed by efficient server execution paths.
-// - Delivered layout, navigation, and content experience improvements with UX parity for web and mobile devices.`,
+        //         description: `- Built and maintained full-stack modules using Node.js, HTML5, and UI-first development priorities.
+        // - Implemented real-time logic for data-driven interfaces backed by efficient server execution paths.
+        // - Delivered layout, navigation, and content experience improvements with UX parity for web and mobile devices.`,
         description: `- Delivered frontend modules aligned with evolving business requirements and user experience priorities.
 - Built UI components using modern templating and state management approaches.
 - Improved client-side rendering and asset loading to reduce first meaningful paint and boost interaction responsiveness.`,
@@ -231,9 +269,9 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Full-time",
         icon: "code",
-//         description: `- Designed UI layouts and data-driven flows for enterprise applications.
-// - Integrated multi-source backend services and ensured client stability and data coherence.
-// - Maintained product availability, scale, and onboarding efficiency through iterative release practices.`,
+        //         description: `- Designed UI layouts and data-driven flows for enterprise applications.
+        // - Integrated multi-source backend services and ensured client stability and data coherence.
+        // - Maintained product availability, scale, and onboarding efficiency through iterative release practices.`,
         description: `- Sole frontend engineer responsible for the complete IoT device management dashboard on a smart home Wi-Fi router - including a visual rules engine (if-this-then-that style logic builder) accessible via local admin configuration.
 - Designed and built real-time data-driven interfaces backed by efficient server execution, delivering UX parity across web and mobile for consumers in the USA, UK, France, and Germany.
 - Operated with full autonomy across the product - went beyond the frontend brief to collaborate with firmware, backend, cloud, and design teams, using cross-functional insight to make better UX decisions than would have been possible in a siloed role.
@@ -265,8 +303,8 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Full-time",
         icon: "hardware",
-//         description: `- Developed embedded firmware for device-level LCD interfaces and operational logic.
-// - Assisted in field diagnostics, firmware stability improvements, and unit-level test protocols.`,
+        //         description: `- Developed embedded firmware for device-level LCD interfaces and operational logic.
+        // - Assisted in field diagnostics, firmware stability improvements, and unit-level test protocols.`,
         description: `- Developed embedded firmware for device-level LCD interfaces and operational logic.
 - Assisted in field diagnostics, firmware stability improvements, and unit-level test protocols.`,
         skills: [
