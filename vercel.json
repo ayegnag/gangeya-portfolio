@@ -2,6 +2,8 @@
   "buildCommand": "pnpm build",
   "devCommand": "pnpm dev",
   "outputDirectory": "dist/client",
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     {
       "source": "/(.*)",
