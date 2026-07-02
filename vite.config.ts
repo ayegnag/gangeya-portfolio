@@ -1,3 +1,7 @@
+import { readdirSync } from 'node:fs'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 import { defineConfig } from 'vite'
 import { devtools } from '@tanstack/devtools-vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
@@ -6,6 +10,17 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import viteReact from '@vitejs/plugin-react'
 import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
+
+// Dynamic `/blog/$slug` routes can't be enumerated by the prerender's
+// autoStaticPathsDiscovery, so we declare each post explicitly. Without this the
+// prerender only emits `/`, and Vercel serves the SPA shell for every post URL
+// (content then renders client-side only). Slugs are derived from the markdown
+// filenames, matching how getAllBlogs() builds them in features/blog/data/posts.
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const blogContentDir = resolve(__dirname, 'src/features/blog/content')
+const blogPages = readdirSync(blogContentDir)
+  .filter((file) => file.endsWith('.md'))
+  .map((file) => ({ path: `/blog/${file.replace(/\.md$/, '')}` }))
 
 const config = defineConfig({
   plugins: [
@@ -30,12 +45,13 @@ const config = defineConfig({
     }),
     tailwindcss(),
     tanstackStart({
+      // Explicit list of dynamic post routes to prerender (see blogPages above).
+      pages: blogPages,
       prerender: {
         enabled: true,
-        autoSubfolderIndex: true,
-        autoStaticPathsDiscovery: true,
-        // you can leave the advanced options at defaults for now
-        crawlLinks: false,          // ← this stops following external/internal links
+        autoSubfolderIndex: true,   // → /blog/<slug>/index.html
+        autoStaticPathsDiscovery: true, // still picks up static routes (/, /blog, /hobbies)
+        crawlLinks: false,          // don't follow links; pages are declared explicitly
       },
     }),
     viteReact(),

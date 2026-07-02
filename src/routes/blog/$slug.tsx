@@ -4,7 +4,6 @@ import { createFileRoute, notFound, Link, rootRouteId } from '@tanstack/react-ro
 import { getTableOfContents } from "fumadocs-core/content/toc"
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
 import type { BlogPosting as PageSchema, WithContext } from "schema-dts"
-import { useEffect } from 'react'
 
 import { InlineTOC } from "@/components/inline-toc"
 // import { MDX } from "@/components/mdx"
@@ -50,6 +49,41 @@ export const Route = createFileRoute('/blog/$slug')({
     }
   },
 
+  // Emit per-post title/description/OG/canonical into the prerendered <head>.
+  // Previously these were set client-side in a useEffect, so the served HTML
+  // carried the generic 'Gangeya' title until hydration — bad for SEO and for
+  // readability classifiers (e.g. Chrome "Listen to this page").
+  head: ({ loaderData }) => {
+    const post = loaderData?.post
+    if (!post) return {}
+
+    const { title, description, image, createdAt, updatedAt } = post.metadata
+    const postUrl = getPostUrl(post)
+    const ogImage = image || `/og/simple?title=${encodeURIComponent(title)}`
+
+    return {
+      meta: [
+        { title },
+        { name: 'description', content: description },
+        { property: 'og:type', content: 'article' },
+        { property: 'og:url', content: `${SITE_INFO.url}${postUrl}` },
+        { property: 'og:title', content: title },
+        { property: 'og:description', content: description },
+        { property: 'og:image', content: ogImage },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { property: 'og:image:alt', content: title },
+        { property: 'article:published_time', content: new Date(createdAt).toISOString() },
+        { property: 'article:modified_time', content: new Date(updatedAt).toISOString() },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: title },
+        { name: 'twitter:description', content: description },
+        { name: 'twitter:image', content: ogImage },
+      ],
+      links: [{ rel: 'canonical', href: `${SITE_INFO.url}${postUrl}` }],
+    }
+  },
+
   //   // Optional: error handling per-route
   //   errorComponent: ({ error }) => (
   //     <div>
@@ -87,67 +121,12 @@ function getPostUrl(post: Post) {
   return isComponent ? `/components/${post.slug}` : `/blog/${post.slug}`
 }
 
-// Helper function to update meta tags
-function updateMetaTags(post: Post) {
-  const { title, description, image, createdAt, updatedAt } = post.metadata
-  const postUrl = getPostUrl(post)
-  const ogImage = image || `/og/simple?title=${encodeURIComponent(title)}`
-
-  // Update title
-  document.title = title
-
-  // Helper to set or create meta tag
-  const setMetaTag = (selector: string, content: string) => {
-    let element = document.querySelector(selector) as HTMLMetaElement
-    if (!element) {
-      element = document.createElement('meta')
-      const match = selector.match(/\[([^=]+)="([^"]+)"\]/)
-      if (match) {
-        element.setAttribute(match[1], match[2])
-      }
-      document.head.appendChild(element)
-    }
-    element.setAttribute('content', content)
-  }
-
-  // Update meta tags
-  setMetaTag('meta[name="description"]', description)
-  setMetaTag('meta[property="og:url"]', `${SITE_INFO.url}${postUrl}`)
-  setMetaTag('meta[property="og:type"]', 'article')
-  setMetaTag('meta[property="og:title"]', title)
-  setMetaTag('meta[property="og:description"]', description)
-  setMetaTag('meta[property="og:image"]', ogImage)
-  setMetaTag('meta[property="og:image:width"]', '1200')
-  setMetaTag('meta[property="og:image:height"]', '630')
-  setMetaTag('meta[property="og:image:alt"]', title)
-  setMetaTag('meta[property="article:published_time"]', new Date(createdAt).toISOString())
-  setMetaTag('meta[property="article:modified_time"]', new Date(updatedAt).toISOString())
-  setMetaTag('meta[name="twitter:card"]', 'summary_large_image')
-  setMetaTag('meta[name="twitter:title"]', title)
-  setMetaTag('meta[name="twitter:description"]', description)
-  setMetaTag('meta[name="twitter:image"]', ogImage)
-
-  // Update canonical link
-  let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement
-  if (!canonical) {
-    canonical = document.createElement('link')
-    canonical.rel = 'canonical'
-    document.head.appendChild(canonical)
-  }
-  canonical.href = `${SITE_INFO.url}${postUrl}`
-}
-
 // Component
 function BlogPostPage() {
   const { post, previous, next } = Route.useLoaderData()
   // console.log('Loaded post:', post)
   // Generate TOC in component (not serializable for loader)
   const toc = getTableOfContents(post.content)
-
-  // Update meta tags when post changes
-  useEffect(() => {
-    updateMetaTags(post)
-  }, [post])
 
   return (
     <>
