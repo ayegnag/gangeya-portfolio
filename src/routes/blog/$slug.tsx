@@ -121,12 +121,23 @@ function getPostUrl(post: Post) {
   return isComponent ? `/components/${post.slug}` : `/blog/${post.slug}`
 }
 
+// The route already renders the post title as an <h1> (below), but the markdown
+// source repeats it as a `# Title` heading (often after a lead image), producing
+// two identical <h1>s per page. Remove the FIRST level-1 ATX heading (`# ` — one
+// hash then horizontal whitespace) wherever it appears, leaving a single
+// canonical <h1>. The `m` flag anchors `^` to line starts; no `g` flag means
+// only the first match is removed. Posts with no `# ` heading are untouched.
+function stripLeadingH1(markdown: string): string {
+  return markdown.replace(/^#[^\S\r\n]+.*(?:\r?\n)+/m, '')
+}
+
 // Component
 function BlogPostPage() {
   const { post, previous, next } = Route.useLoaderData()
   // console.log('Loaded post:', post)
+  const content = stripLeadingH1(post.content)
   // Generate TOC in component (not serializable for loader)
-  const toc = getTableOfContents(post.content)
+  const toc = getTableOfContents(content)
 
   return (
     <>
@@ -228,22 +239,24 @@ function BlogPostPage() {
           />
         </div>
 
-        <Prose className="px-4">
-          <h1 className="screen-line-after text-3xl font-semibold">
-            {post.metadata.title}
-          </h1>
+        <Prose className="px-4" asChild>
+          <article>
+            <h1 className="screen-line-after text-3xl font-semibold">
+              {post.metadata.title}
+            </h1>
 
-          <p className="text-muted-foreground">{post.metadata.description}</p>
+            <p className="text-muted-foreground">{post.metadata.description}</p>
 
-          <InlineTOC items={toc} />
+            <InlineTOC items={toc} />
 
-          <div>
-            {/* <MDX code={post.content} /> */}
-            <BlogPostRenderer
-              content={post.content}
-              className='my-8'
-            />
-          </div>
+            <div>
+              {/* <MDX code={post.content} /> */}
+              <BlogPostRenderer
+                content={content}
+                className='my-8'
+              />
+            </div>
+          </article>
         </Prose>
 
         <div className="screen-line-after h-4 w-full" />
