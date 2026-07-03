@@ -115,6 +115,14 @@
   }
 }
 
+html {
+  scrollbar-gutter: stable both-edges;
+}
+
+html body[data-scroll-locked] {
+  margin-right: 0 !important;
+}
+
 :root {
   /* white */
   --background: oklch(1 0 0);
