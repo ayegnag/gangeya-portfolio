@@ -1,12 +1,12 @@
 ---
 title: "The Three Lives of a Design System: A Practical Guide to Scaling Consistency"
 description: An experiential lesson about the lifecycle of design systems, focusing on how to scale consistency across platforms and products, with practical advice.
-image: "/images/blog/design-system.png"
+image: "/images/blog/design-system.jpg"
 createdAt: 2025-10-13
 updatedAt: 2025-10-13
 ---
 
-![Taking Notes](/images/blog/design-system.png)
+![Taking Notes](/images/blog/design-system.jpg)
 
 # The Three Lives of a Design System: A Practical Guide to Scaling Consistency
 

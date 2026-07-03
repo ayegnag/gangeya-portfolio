@@ -1,12 +1,12 @@
 ---
 title: Why understanding UX matters as a Dev
 description: A developer doesn't just build screens, they build solutions.
-image: "/images/blog/golden-ratio.png"
+image: "/images/blog/golden-ratio.jpg"
 createdAt: 2025-12-25
 updatedAt: 2025-12-25
 ---
 
-![The Golden ratio](/images/blog/golden-ratio.png)
+![The Golden ratio](/images/blog/golden-ratio.jpg)
 
 # Why understanding UX matters as a Dev
 

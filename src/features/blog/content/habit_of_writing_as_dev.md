@@ -1,12 +1,12 @@
 ---
 title: The Habit of Writing as a Developer
 description: Making notes as a developer is more than just recording information.
-image: "/images/blog/write-notes2.png"
+image: "/images/blog/write-notes2.jpg"
 createdAt: 2025-03-04
 updatedAt: 2025-03-04
 ---
 
-![Taking Notes](/images/blog/write-notes2.png)
+![Taking Notes](/images/blog/write-notes2.jpg)
 
 In day-to-day work, we're constantly communicating, solving problems, making decisions, and learning along the way. Behind every solution we build, there's a trail of thought - assumptions, trade-offs, constraints, and agreements.
 

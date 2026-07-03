@@ -13,7 +13,10 @@ export function ProfileHeader() {
             className="size-32 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none sm:size-40"
             alt={`${USER.displayName}'s avatar`}
             src={USER.avatar}
+            width={256}
+            height={256}
             fetchPriority="high"
+            decoding="async"
           />
         </div>
 

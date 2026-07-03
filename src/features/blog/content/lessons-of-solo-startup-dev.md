@@ -1,12 +1,12 @@
 ---
 title: Building Under Uncertainty - Lessons from a Solo Startup a Decade Ago
 description: A reflection on building a startup solo under tight constraints, the decisions that shaped it, and the lessons that still guide how I build software today.
-image: "/images/blog/solo-startup.png"
+image: "/images/blog/solo-startup.jpg"
 createdAt: 2026-01-03
 updatedAt: 2026-01-03
 ---
 
-![Taking Notes](/images/blog/solo-startup.png)
+![Taking Notes](/images/blog/solo-startup.jpg)
 
 
 ### The beginning

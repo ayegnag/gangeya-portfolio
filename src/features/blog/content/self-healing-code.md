@@ -1,12 +1,12 @@
 ---
 title: What If Code Could Heal Itself? (A More Realistic View)
 description: A deep dive into self-healing architecture—and where it hits the wall of technical debt and security complexity.
-image: "/images/blog/self-healing-code.png"
+image: "/images/blog/self-healing-code.jpg"
 createdAt: 2026-04-06
 updatedAt: 2026-04-06
 ---
 
-![Taking Notes](/images/blog/self-healing-code.png)
+![Taking Notes](/images/blog/self-healing-code.jpg)
 
 # What If Code Could Heal Itself?
 

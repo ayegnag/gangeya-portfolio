@@ -1,12 +1,12 @@
 ---
 title: Understanding Personal Taste as a Core Differentiator
 description: A look into how to understand and leverage personal taste in an AI-driven age.
-image: "/images/blog/personal-taste.png"
+image: "/images/blog/personal-taste.jpg"
 createdAt: 2026-01-26
 updatedAt: 2026-01-26
 ---
 
-![Taking Notes](/images/blog/personal-taste.png)
+![Taking Notes](/images/blog/personal-taste.jpg)
 
 # Understanding Personal Taste as a Core Differentiator
 

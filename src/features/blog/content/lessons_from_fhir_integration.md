@@ -1,12 +1,12 @@
 ---
 title: Navigating FHIR in Real-World Systems
 description: A practical, experience-driven look at working with FHIR in real healthcare systems, beyond the specification and surface-level tutorials. It covers the concepts, trade-offs, and lessons that matter when building interoperable, compliant software in the real world.
-image: "/images/blog/fhir-lessons.png"
+image: "/images/blog/fhir-lessons.jpg"
 createdAt: 2025-11-24
 updatedAt: 2025-11-24
 ---
 
-![Taking Notes](/images/blog/fhir-lessons.png)
+![Taking Notes](/images/blog/fhir-lessons.jpg)
 
 # Navigating FHIR in Real-World Systems
 

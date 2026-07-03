@@ -44,7 +44,7 @@ export const USER: User = {
    `,
 
   // avatar: "/images/profilePic_painted.jpg",
-  avatar: "/images/profilePic_photo.png",
+  avatar: "/images/profilePic_photo.webp",
   ogImage:
     "https://assets.chanhdai.com/images/screenshot-og-image-light.png?t=1764345394",
   namePronunciationUrl: "/audio/gangeya_name_hindi.mp3",

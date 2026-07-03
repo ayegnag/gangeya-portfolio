@@ -8,6 +8,7 @@ import appCss from "@/styles/globals.css?url";
 
 import NotFound from '@/components/not-found'
 import { RouterContext } from '../routerContext'
+import { SITE_INFO } from '@/config/site'
 // import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { AppProviders } from '@/components/providers'
 import { SiteHeader } from '@/components/site-header'
@@ -59,7 +60,14 @@ export const Route = createRootRouteWithContext<RouterContext>()({
       },
       {
         title: getTitle(match),
-      }
+      },
+      // Default meta description so every page has one (fixes the SEO audit's
+      // "Document does not have a meta description"). Leaf routes like the blog
+      // post page set their own description, which overrides this.
+      {
+        name: 'description',
+        content: SITE_INFO.description,
+      },
     ],
     links: [
       {
