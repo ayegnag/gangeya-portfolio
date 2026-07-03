@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { getAllBlogIndex, getAllBlogs } from '@/features/blog/data/posts';
+import { getAllBlogIndex } from '@/features/blog/data/blog-summaries';
 
 import { Suspense } from 'react';
 import { PostList } from "@/features/blog/components/post-list";

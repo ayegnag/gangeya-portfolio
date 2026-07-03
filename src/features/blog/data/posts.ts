@@ -1,50 +1,43 @@
-import blogIndex from "@/features/blog/data/blog-index.json" assert { type: 'json' };
-
-import type { BlogSummary, Post } from "@/types/blog";
-
 import matter from 'gray-matter';
 import type { BlogPost, PostMetadata } from '@/types/blog'
 
-
+/*
+ * Lazy markdown glob: WITHOUT `eager: true`, Vite gives each .md its own async
+ * chunk (`() => Promise<string>`) instead of inlining every post's raw prose into
+ * whatever imports this module. The `/blog/$slug` route loader lives in the entry
+ * bundle, so an eager glob here previously shipped ALL post content in the
+ * homepage's main.js. Now only the requested post's chunk loads on demand (and is
+ * inlined into that post's prerendered HTML at build time).
+ */
 const blogModules = import.meta.glob<string>(
   '../content/*.md',
   {
     query: '?raw',
     import: 'default',
-    eager: true,
   }
 )
 
-export const getAllBlogs = (): BlogPost[] => {
-  const posts = Object.entries(blogModules).map(([path, rawContent]) => {
-    const slug = path
-      .split('/')
-      .pop()
-      ?.replace(/\.md$/, '') ?? '';
+function slugFromPath(path: string): string {
+  return path.split('/').pop()?.replace(/\.md$/, '') ?? '';
+}
 
-    const { data: metadata, content: mdContent } = matter(rawContent);
+function parsePost(slug: string, rawContent: string): BlogPost {
+  const { data: metadata, content: mdContent } = matter(rawContent);
+  return {
+    slug,
+    metadata: metadata as PostMetadata,
+    content: mdContent.trim(),
+  };
+}
 
-    return {
-      slug,
-      metadata: metadata as PostMetadata,
-      content: mdContent.trim(),
-    };
-  });
+export const getAllBlogs = async (): Promise<BlogPost[]> => {
+  const posts = await Promise.all(
+    Object.entries(blogModules).map(async ([path, load]) =>
+      parsePost(slugFromPath(path), await load()),
+    ),
+  );
 
-  // Sort: pinned first (descending), then newest first
-  // return posts.sort((a, b) => {
-  //   // 1. Pinned posts come first
-  //   if (a.metadata.pinned && !b.metadata.pinned) return -1;
-  //   if (!a.metadata.pinned && b.metadata.pinned) return 1;
-
-  //   // 2. Then sort by date descending (newest first)
-  //   // Use createdAt if present, fall back to date, fall back to 0 (oldest)
-  //   const dateA = a.metadata.createdAt ?? a.metadata.date ?? '1970-01-01';
-  //   const dateB = b.metadata.createdAt ?? b.metadata.date ?? '1970-01-01';
-
-  //   return new Date(dateB).getTime() - new Date(dateA).getTime();
-  // });
-  // console.log('Posts before sorting:', posts);
+  // Sort: pinned first, then newest first (mirrors generate-blog-index.ts).
   return posts.sort((a, b) => {
     if (a.metadata.pinned !== b.metadata.pinned) {
       return a.metadata.pinned ? -1 : 1;
@@ -53,12 +46,14 @@ export const getAllBlogs = (): BlogPost[] => {
   });
 };
 
-export const getBlogBySlug = (slug: string): BlogPost | undefined => {
-  console.log('Fetching blog post for slug:', slug);
-  return getAllBlogs().find((post) => {
-    console.log('Checking post slug:', post.slug);
-    return post.slug === slug;
-  });
+export const getBlogBySlug = async (
+  slug: string,
+): Promise<BlogPost | undefined> => {
+  const entry = Object.entries(blogModules).find(
+    ([path]) => slugFromPath(path) === slug,
+  );
+  if (!entry) return undefined;
+  return parsePost(slug, await entry[1]());
 };
 
 function getPostDate(fm: PostMetadata): number {
@@ -67,16 +62,11 @@ function getPostDate(fm: PostMetadata): number {
   return isNaN(timestamp) ? 0 : timestamp;
 }
 
-export function getRecentPosts() {
-  const recentBlogs = (blogIndex as BlogSummary[]).slice(0, 5);
-  return recentBlogs;
-}
-
-export function getAllBlogIndex(): BlogSummary[] {
-  return blogIndex as BlogSummary[];
-}
-
-export function findNeighbour(posts: Post[], slug: string) {
+// Only reads `.slug`, so it accepts full posts or lightweight summaries alike.
+export function findNeighbour<T extends { slug: string }>(
+  posts: T[],
+  slug: string,
+) {
   const len = posts.length;
 
   for (let i = 0; i < len; ++i) {

@@ -3,7 +3,9 @@ import { useHotkeys } from "react-hotkeys-hook";
 
 import { useRouter } from '@tanstack/react-router'
 
-import type { Post } from "@/features/blog/types/post";
+// Only the slug is needed for navigation, so accept anything with a slug
+// (full posts or lightweight summaries).
+type PostRef = { slug: string };
 
 export function PostKeyboardShortcuts({
   basePath,
@@ -11,12 +13,12 @@ export function PostKeyboardShortcuts({
   next,
 }: {
   basePath: string;
-  previous: Post | null;
-  next: Post | null;
+  previous: PostRef | null;
+  next: PostRef | null;
 }) {
   const router = useRouter();
 
-  const navigate = (post: Post | null) => {
+  const navigate = (post: PostRef | null) => {
     if (post) {
       // router.push(`${basePath}/${post.slug}`);
       router.navigate({ to: `${basePath}/${post.slug}` });

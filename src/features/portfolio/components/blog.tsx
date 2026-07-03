@@ -3,7 +3,7 @@ import { Link } from '@tanstack/react-router'
 
 import { Button } from "@/components/ui/button";
 import { PostItem } from "@/features/blog/components/post-item";
-import { getRecentPosts } from "@/features/blog/data/posts";
+import { getRecentPosts } from "@/features/blog/data/blog-summaries";
 
 import { Panel, PanelHeader, PanelTitle } from "./panel";
 

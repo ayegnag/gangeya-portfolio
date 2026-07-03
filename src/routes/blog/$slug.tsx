@@ -19,11 +19,8 @@ import { SITE_INFO } from "@/config/site"
 import { PostKeyboardShortcuts } from "@/features/blog/components/post-keyboard-shortcuts"
 // import { LLMCopyButtonWithViewOptions } from "@/features/blog/components/post-page-actions"
 import { PostShareMenu } from "@/features/blog/components/post-share-menu"
-import {
-  findNeighbour,
-  getAllBlogs,
-  getBlogBySlug,
-} from "@/features/blog/data/posts"
+import { findNeighbour, getBlogBySlug } from "@/features/blog/data/posts"
+import { getAllBlogIndex } from "@/features/blog/data/blog-summaries"
 import type { Post } from "@/features/blog/types/post"
 import { USER } from "@/features/portfolio/data/user"
 import { cn } from "@/lib/utils"
@@ -32,15 +29,17 @@ import { ScrollToTop } from '@/components/scroll-to-top'
 
 // Route definition
 export const Route = createFileRoute('/blog/$slug')({
-  loader: ({ params }) => {
-    const post = getBlogBySlug(params.slug)
-    // console.log('Loader fetched post for slug:', params.slug, post) 
+  loader: async ({ params }) => {
+    // Loads only this post's markdown chunk (not every post).
+    const post = await getBlogBySlug(params.slug)
     if (!post) {
       throw notFound()
     }
 
-    const allPosts = getAllBlogs()
-    const { previous, next } = findNeighbour(allPosts, params.slug)
+    // Neighbours only need slugs for prev/next nav, so use the lightweight
+    // summary index (same sort order as getAllBlogs) instead of loading every
+    // post's full content.
+    const { previous, next } = findNeighbour(getAllBlogIndex(), params.slug)
 
     return {
       post,
