@@ -47,6 +47,13 @@ const config = defineConfig({
     tanstackStart({
       // Explicit list of dynamic post routes to prerender (see blogPages above).
       pages: blogPages,
+      // Emit dist/client/sitemap.xml covering every prerendered page (posts +
+      // static routes). Without a host set, TanStack skips generation entirely
+      // (build logs "no sitemap host has been set"), leaving Google with no map
+      // of the dynamic /blog/* URLs to discover.
+      sitemap: {
+        host: 'https://gangeya.dev',
+      },
       prerender: {
         enabled: true,
         autoSubfolderIndex: true,   // → /blog/<slug>/index.html
