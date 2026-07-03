@@ -19,9 +19,16 @@ import { CLOUD_SERVICES } from '../data/shapes';
 import { createExcalidrawElement } from '../data/elements'
 import { LiveEditor } from './liveEditor'
 
-// Lazy load Excalidraw to avoid SSR/import issues
+// Lazy load Excalidraw AND its stylesheet together, so its ~145 KB of CSS only
+// loads on this route. Previously the CSS was a static top-level import in the
+// route module, which hoisted it into the global render-blocking stylesheet and
+// shipped it (~99% unused) to every page. Promise.all ensures the CSS is applied
+// before Excalidraw renders (no FOUC).
 const Excalidraw = lazy(() =>
-    import('@excalidraw/excalidraw').then((module) => ({
+    Promise.all([
+        import('@excalidraw/excalidraw'),
+        import('@excalidraw/excalidraw/index.css'),
+    ]).then(([module]) => ({
         default: module.Excalidraw,
     }))
 )

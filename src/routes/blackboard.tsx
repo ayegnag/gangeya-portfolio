@@ -1,6 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 import Blackboard from '@/features/blackboard/components/blackboard'
-import '@excalidraw/excalidraw/index.css'
+// NOTE: Excalidraw's CSS is intentionally NOT imported here. It's loaded lazily
+// alongside the Excalidraw component (features/blackboard/components/blackboard.tsx)
+// so its ~145 KB doesn't become a render-blocking, ~99%-unused global stylesheet.
 import { Suspense } from 'react'
 
 export const Route = createFileRoute('/blackboard')({
