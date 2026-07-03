@@ -1,24 +1,27 @@
 // import { USER } from '@/features/portfolio/data/user';
+import { lazy, Suspense } from 'react';
 import { cn } from '@/lib/utils';
 import { createFileRoute } from '@tanstack/react-router'
 // import type { ProfilePage as PageSchema, WithContext } from "schema-dts"
+
+// Above-the-fold: keep eager so the initial paint (incl. the LCP avatar) isn't
+// gated on extra chunks.
 import { ProfileCover } from '@/features/portfolio/components/profile-cover';
 import { ProfileHeader } from '@/features/portfolio/components/profile-header';
 import { Overview } from '@/features/portfolio/components/overview';
-import { About } from '@/features/portfolio/components/about';
-// import { TestimonialsMarquee } from '@/features/portfolio/components/testimonials-marquee';
-// import { Awards } from '@/features/portfolio/components/awards';
-import { Blog } from '@/features/portfolio/components/blog';
-// import { Bookmarks } from '@/features/portfolio/components/bookmarks';
-// import { Brand } from '@/features/portfolio/components/brand';
-// import { Certifications } from '@/features/portfolio/components/certifications';
-import { Experiences } from '@/features/portfolio/components/experiences';
-// import { GitHubContributions } from '@/features/portfolio/components/github-contributions';
-import { Projects } from '@/features/portfolio/components/projects';
-import { TeckStack } from '@/features/portfolio/components/teck-stack';
 import { SocialLinks } from '@/features/portfolio/components/social-links';
 import { Analytics } from "@vercel/analytics/react";
-import { Education } from '@/features/portfolio/components/education';
+
+// Below-the-fold: code-split into their own chunks so their JS (post-item +
+// date-fns, tooltip, collapsibles) isn't part of the homepage's initial bundle.
+// These are still server-rendered/prerendered (Suspense resolves during SSR), so
+// the content stays in the static HTML for SEO and there's no layout shift.
+const About = lazy(() => import('@/features/portfolio/components/about').then((m) => ({ default: m.About })));
+const TeckStack = lazy(() => import('@/features/portfolio/components/teck-stack').then((m) => ({ default: m.TeckStack })));
+const Blog = lazy(() => import('@/features/portfolio/components/blog').then((m) => ({ default: m.Blog })));
+const Experiences = lazy(() => import('@/features/portfolio/components/experiences').then((m) => ({ default: m.Experiences })));
+const Projects = lazy(() => import('@/features/portfolio/components/projects').then((m) => ({ default: m.Projects })));
+const Education = lazy(() => import('@/features/portfolio/components/education').then((m) => ({ default: m.Education })));
 
 export const Route = createFileRoute('/')({
   staticData: {
@@ -51,40 +54,42 @@ function App() {
 
         <SocialLinks />
         <Separator />
-        
-        <About />
-        <Separator />
 
-        {/* <TestimonialsMarquee />
+        <Suspense fallback={<div className="min-h-screen" />}>
+          <About />
+          <Separator />
+
+          {/* <TestimonialsMarquee />
+          <Separator /> */}
+
+          {/* <GitHubContributions />
         <Separator /> */}
 
-        {/* <GitHubContributions />
-      <Separator /> */}
+          <TeckStack />
+          <Separator />
 
-        <TeckStack />
-        <Separator />
+          <Blog />
+          <Separator />
 
-        <Blog />
-        <Separator />
+          <Experiences />
+          <Separator />
 
-        <Experiences />
-        <Separator />
+          <Projects />
+          <Separator />
 
-        <Projects />
-        <Separator />
+          {/* <Awards />
+          <Separator />
 
-        {/* <Awards />
-        <Separator />
+          <Certifications />
+          <Separator />
 
-        <Certifications />
-        <Separator />
+          <Bookmarks />
+          <Separator /> */}
 
-        <Bookmarks />
-        <Separator /> */}
-
-        {/* <Brand /> */}
-        <Education />
-        <Separator />
+          {/* <Brand /> */}
+          <Education />
+          <Separator />
+        </Suspense>
       </div>
     </>
   )
