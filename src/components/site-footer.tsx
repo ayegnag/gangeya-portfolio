@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 import { SITE_INFO, SOURCE_CODE_GITHUB_URL } from "@/config/site";
 // import { RssIcon } from "lucide-react";
 // import { Icons } from "./icons";
@@ -55,6 +57,24 @@ export function SiteFooter() {
               <span className="sr-only">RSS</span>
             </a> */}
 
+            <Separator />
+            <Link
+              to="/privacy-policy"
+              className="flex font-mono text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Privacy Policy
+            </Link>
+            <Separator />
+            {/* Withdrawal: re-opens the consent manager. `data-cookie-settings`
+                is intercepted by the consent manager (preventDefault + open);
+                the href is the fallback when JS is off. */}
+            <a
+              href="/privacy-policy"
+              data-cookie-settings
+              className="flex font-mono text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Cookie settings
+            </a>
             <Separator />
             <a href="//www.dmca.com/Protection/Status.aspx?ID=0a4d0a95-ec16-4aaa-91d0-cc2d70195fe9"
                 title="DMCA.com Protection Status"

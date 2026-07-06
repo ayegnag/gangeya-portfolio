@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as BlackboardRouteImport } from './routes/blackboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as HobbiesIndexRouteImport } from './routes/hobbies/index'
 import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlackboardRoute = BlackboardRouteImport.update({
   id: '/blackboard',
   path: '/blackboard',
@@ -44,6 +50,7 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blackboard': typeof BlackboardRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog': typeof BlogIndexRoute
   '/hobbies': typeof HobbiesIndexRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blackboard': typeof BlackboardRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog': typeof BlogIndexRoute
   '/hobbies': typeof HobbiesIndexRoute
@@ -59,21 +67,42 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blackboard': typeof BlackboardRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
   '/hobbies/': typeof HobbiesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/blackboard' | '/blog/$slug' | '/blog' | '/hobbies'
+  fullPaths:
+    | '/'
+    | '/blackboard'
+    | '/privacy-policy'
+    | '/blog/$slug'
+    | '/blog'
+    | '/hobbies'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blackboard' | '/blog/$slug' | '/blog' | '/hobbies'
-  id: '__root__' | '/' | '/blackboard' | '/blog/$slug' | '/blog/' | '/hobbies/'
+  to:
+    | '/'
+    | '/blackboard'
+    | '/privacy-policy'
+    | '/blog/$slug'
+    | '/blog'
+    | '/hobbies'
+  id:
+    | '__root__'
+    | '/'
+    | '/blackboard'
+    | '/privacy-policy'
+    | '/blog/$slug'
+    | '/blog/'
+    | '/hobbies/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlackboardRoute: typeof BlackboardRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   BlogSlugRoute: typeof BlogSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
   HobbiesIndexRoute: typeof HobbiesIndexRoute
@@ -81,6 +110,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blackboard': {
       id: '/blackboard'
       path: '/blackboard'
@@ -122,6 +158,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlackboardRoute: BlackboardRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   BlogSlugRoute: BlogSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
   HobbiesIndexRoute: HobbiesIndexRoute,

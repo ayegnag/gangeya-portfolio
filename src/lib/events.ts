@@ -20,6 +20,13 @@ const eventSchema = z.object({
 export type Event = z.infer<typeof eventSchema>;
 
 export function trackEvent(input: Event) {
+  // Respect the visitor's analytics consent. `SiteConsent` is provided by the
+  // consent manager; if it's absent (e.g. SSR) or analytics wasn't granted, do
+  // nothing. (PostHog isn't initialized today, so this also future-proofs it.)
+  if (typeof window === "undefined" || !window.SiteConsent?.hasAnalytics()) {
+    return;
+  }
+
   const event = eventSchema.parse(input);
   if (event) {
     posthog.capture(event.name, event.properties);

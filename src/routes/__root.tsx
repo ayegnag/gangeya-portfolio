@@ -14,6 +14,7 @@ import { AppProviders } from '@/components/providers'
 import { SiteHeader } from '@/components/site-header'
 // import { Analytics } from '@vercel/analytics/react'
 import { SiteFooter } from '@/components/site-footer';
+import { CookieConsent } from '@/components/cookie-consent';
 import '@/components/console-easter';
 import '@/lib/reload-on-chunk-error';
 
@@ -123,6 +124,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           {!hideHeader && <SiteHeader />}
           <main className="max-w-screen overflow-x-hidden px-2">{children}</main>
           {!hideFooter && <SiteFooter></SiteFooter>}
+          {/* Non-modal consent banner, rendered once site-wide after content. */}
+          <CookieConsent />
         </AppProviders>
         {/* <TanStackDevtools
           config={{

@@ -10,7 +10,6 @@ import { ProfileCover } from '@/features/portfolio/components/profile-cover';
 import { ProfileHeader } from '@/features/portfolio/components/profile-header';
 import { Overview } from '@/features/portfolio/components/overview';
 import { SocialLinks } from '@/features/portfolio/components/social-links';
-import { Analytics } from "@vercel/analytics/react";
 
 // Below-the-fold: code-split into their own chunks so their JS (post-item +
 // date-fns, tooltip, collapsibles) isn't part of the homepage's initial bundle.
@@ -35,7 +34,7 @@ function App() {
 
   return (
     <>
-      <Analytics />
+      {/* Analytics is loaded centrally & consent-gated in AppProviders. */}
       {/* <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
