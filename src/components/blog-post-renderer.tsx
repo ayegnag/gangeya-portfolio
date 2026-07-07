@@ -52,6 +52,11 @@ export const BlogPostRenderer: React.FC<BlogPostRendererProps> = ({
   content,
   className,
 }) => {
+  // Track image order within the article so the first (hero) image — which is
+  // typically the LCP element — loads eagerly with high priority, while the rest
+  // stay lazy. Resets on every render.
+  let imageIndex = 0
+
   return (
     <div
       className={cn(
@@ -72,18 +77,18 @@ export const BlogPostRenderer: React.FC<BlogPostRendererProps> = ({
         ]}
         components={{
           // Headings – match shadcn/ui Heading component or use classes
-          h1: (props) => <Heading as="h1" className="scroll-m-20 text-4xl" {...props} />,
-          h2: (props) => (
+          h1: ({ node: _n, ...props }: any) => <Heading as="h1" className="scroll-m-20 text-4xl" {...props} />,
+          h2: ({ node: _n, ...props }: any) => (
             <Heading
               as="h2"
               className="scroll-m-20 border-b pb-2 text-3xl first:mt-0"
               {...props}
             />
           ),
-          h3: (props) => <Heading as="h3" className="scroll-m-20 text-2xl" {...props} />,
-          h4: (props) => <Heading as="h4" className="scroll-m-20 text-xl" {...props} />,
+          h3: ({ node: _n, ...props }: any) => <Heading as="h3" className="scroll-m-20 text-2xl" {...props} />,
+          h4: ({ node: _n, ...props }: any) => <Heading as="h4" className="scroll-m-20 text-xl" {...props} />,
           // Tables – full shadcn/ui Table
-          table: (props) => (
+          table: ({ node: _n, ...props }: any) => (
             <div className="my-6 w-full overflow-y-auto">
               <Table {...props} />
             </div>
@@ -95,7 +100,7 @@ export const BlogPostRenderer: React.FC<BlogPostRendererProps> = ({
           td: TableCell,
 
           // Code blocks – add copy button + styling
-          pre: ({ children, ...props }) => {
+          pre: ({ children, node: _n, ...props }: any) => {
             const codeEl = React.Children.only(children) as React.ReactElement<{ children: string }>
             const codeString = String(codeEl.props.children).replace(/\n$/, '')
 
@@ -109,7 +114,7 @@ export const BlogPostRenderer: React.FC<BlogPostRendererProps> = ({
             )
           },
 
-          code({ inline, className, children, ...props }: any) {
+          code({ inline, className, children, node: _n, ...props }: any) {
             const match = /language-(\w+)/.exec(className || '')
             return !inline && match ? (
               <code className={cn(className, 'text-sm')} {...props}>
@@ -125,17 +130,30 @@ export const BlogPostRenderer: React.FC<BlogPostRendererProps> = ({
             )
           },
 
-          // Images – keep your resolver
-          img: ({ src, alt, ...props }) => {
+          // Images – resolve relative paths; drop react-markdown's non-DOM
+          // `node` prop (it was leaking as node="[object Object]"). The first
+          // image loads eagerly + high priority (LCP); later ones stay lazy.
+          img: ({ src, alt, node: _node, ...props }: any) => {
             let finalSrc = src ?? ''
             if (finalSrc && !finalSrc.startsWith('http') && !finalSrc.startsWith('/')) {
               finalSrc = `/images/blog/${finalSrc.replace(/^\.\//, '')}`
             }
-            return <img src={finalSrc} alt={alt} className="rounded-lg" {...props} />
+            const isHero = imageIndex++ === 0
+            return (
+              <img
+                src={finalSrc}
+                alt={alt}
+                className="rounded-lg"
+                loading={isHero ? 'eager' : 'lazy'}
+                fetchPriority={isHero ? 'high' : 'auto'}
+                decoding="async"
+                {...props}
+              />
+            )
           },
 
           // Add more overrides as needed (blockquote, ul/ol, etc.)
-          blockquote: (props) => (
+          blockquote: ({ node: _n, ...props }: any) => (
             <blockquote className="mt-6 border-l-2 pl-6 italic text-muted-foreground" {...props} />
           ),
         }}

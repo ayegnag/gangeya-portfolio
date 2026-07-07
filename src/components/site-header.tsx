@@ -25,7 +25,12 @@ export function SiteHeader() {
   return (
     <SiteHeaderWrapper
       className={cn(
-        "sticky top-0 z-50 max-w-screen bg-background px-2 pt-2", // overflow-x-hidden
+        // overflow-x-clip clips the header's full-bleed screen-line decoration to
+        // the viewport (its ::before/::after span 200vw; when the inner bar is
+        // centered at md+ this bled ~256px past the right edge, causing desktop
+        // horizontal scroll). `clip` (not `hidden`) leaves the y-axis untouched,
+        // so the sticky shadow and portalled menus are unaffected.
+        "sticky top-0 z-50 max-w-screen overflow-x-clip bg-background px-2 pt-2",
         "data-[affix=true]:shadow-[0_0_16px_0_black]/8 dark:data-[affix=true]:shadow-[0_0_16px_0_black]",
         "not-dark:data-[affix=true]:**:data-header-container:after:bg-border",
         "transition-shadow duration-300"

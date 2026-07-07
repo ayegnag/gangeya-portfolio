@@ -67,13 +67,13 @@ function App() {
           {/* <TeckStack />
           <Separator /> */}
 
-          <Blog />
-          <Separator />
-
           <Experiences />
           <Separator />
 
           <Projects />
+          <Separator />
+
+          <Blog />
           <Separator />
 
           {/* <Awards />
