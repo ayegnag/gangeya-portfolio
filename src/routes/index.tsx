@@ -64,8 +64,8 @@ function App() {
           {/* <GitHubContributions />
         <Separator /> */}
 
-          <TeckStack />
-          <Separator />
+          {/* <TeckStack />
+          <Separator /> */}
 
           <Blog />
           <Separator />
